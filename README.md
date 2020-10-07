@@ -4,10 +4,10 @@
 
 ## Team Members
 
-* Grady Thompson, @gradyat (Project Manager)
-* Shareen Chang, @shareenchang (Designer)
-* Akoly Vongdala, @AkolyVongdala (Developer)
-* Trey Michaels, @TreyMichaels7 (Developer)
+* Grady Thompson (Project Manager)
+* Shareen Chang (Designer)
+* Akoly Vongdala (Developer)
+* Trey Michaels (Developer)
 
 ## Mission Statement
 
