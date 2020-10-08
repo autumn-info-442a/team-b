@@ -1,6 +1,8 @@
 # INFO 442 Team B
 
-**Team Name:** Team Basecheck
+**Team Name:** Team BaseCheck
+
+![BaseCheck Logo, a blue checkmark with tagline "stay informed"](img/logo.png)
 
 ## Team Members
 
