@@ -8,8 +8,6 @@ While the COVID-19 pandemic spans across the globe, the situation varies from co
 
 ## Solution
 
-This section must detail every design decision necessary for engineering your solution, including every screen, every error, every algorithmic functionality, and every detail about the textual and visual content of your design (aside from content created by users). If your solution is software, a software engineer should be able to read your specification and build your solution without asking you any questions. Embed mockups of screens throughout the text of this section to visually specify your design. Because of the short timeline, it's okay if these are hand-sketched.
-
 We envision a website application that shows the risk levels of different counties as well as states in America. Users will be able to search for a specific county, view COVID related risk information, and choose to add that county to their dashboard. For each county, users will be able to see new cases in the last 7 days, total cases, and total death cases. Users would also have the choice to sign up for an account so that their saved locations appear on their dashboard.
 
 The main screen prompts the user to search a county within America. Below the search bar, there is also a section that mentions the global COVID statistics that users can click into for more information.
