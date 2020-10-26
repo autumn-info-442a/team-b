@@ -1,11 +1,5 @@
 # Architecture
 
-First, write a Markdown file in your GitHub repository that specifies **all of the models, controllers, and views in your application**. For each, describe:
-
-1. What the component&#39;s **responsibility** is
-2. Whether the component resides on the client, the server, or both
-3. What other components the component needs to communicate with and precisely what they will communicate.
-
 - Models:
   - County
     - This component is a model that stores all the Covid related data associated with a specific county such as Covid Cases in the past day, past week, total deaths, etc found from the disease.sh API
