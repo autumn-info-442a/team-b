@@ -1,4 +1,4 @@
-# Requirements
+# Architecture
 
 First, write a Markdown file in your GitHub repository that specifies **all of the models, controllers, and views in your application**. For each, describe:
 
@@ -60,6 +60,7 @@ First, write a Markdown file in your GitHub repository that specifies **all of t
   - saveLocation
     - The saveLocation function is a controller that will save a location to a user&#39;s UserStorage Model
     - Controller resides only on the client
+    - Code Snippet:
   - unsaveLocation
     - The unSaveLocation function is a controller that will unsave a location to a user&#39;s UserStorage Model
     - Controller resides only on the client
