@@ -47,7 +47,8 @@ First, write a Markdown file in your GitHub repository that specifies **all of t
     - The search function is a controller that will handle user input for the search of a county that the user is looking for. Enabling the users to find search results.
     - Controller resides only on the client
     - Code Snippet:
-    ```
+
+    ```js
     /*
      * Accepts a String input representing a county name
      * Returns an array of county information based on the counties that match the search term
@@ -57,6 +58,7 @@ First, write a Markdown file in your GitHub repository that specifies **all of t
       return counties;
     }
     ```
+
   - saveLocation
     - The saveLocation function is a controller that will save a location to a user&#39;s UserStorage Model
     - Controller resides only on the client
