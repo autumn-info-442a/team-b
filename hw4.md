@@ -36,6 +36,21 @@
   - CountyDetail
     - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
     - View resides only on the client
+    - Code Snippet:
+    ``` 
+    class CountyDetail extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+              <NavigationBar/>
+              <p>
+                Total Cases: CountyModel.getCases();
+                Total Deaths: CountyMode.getDeaths();
+              </p>
+          )
+      }
+    }
+    ```
 - UserController:
   - The UserController will handler user input in regards to saving and unsaving locations.
   ```
