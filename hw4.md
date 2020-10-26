@@ -36,30 +36,27 @@
   - CountyDetail
     - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
     - View resides only on the client
-- Controllers:
-  - Search
-    - The search function is a controller that will handle user input for the search of a county that the user is looking for. Enabling the users to find search results.
-    - Controller resides only on the client
-    - Code Snippet:
-
-    ```js
-    /*
-     * Accepts a String input representing a county name
-     * Returns an array of county information based on the counties that match the search term
-    */
-    function search(searchTerm) {
-      //TO-DO: return counties with name that match search term
-      return counties;
+- UserController:
+  - The UserController will handler user input in regards to saving and unsaving locations.
+  ```
+    // Handles adding/removing saved locations for a user
+    class UserController extends Component {
+      // saves a location to the UserStorage Model
+      function saveLocation(String county) {
+        // TO-DO: replace with actual algorithm
+        UserStorage.add(county);
+      }
+      
+      function unSaveLocation(String county ) {
+        // TO-DO: replace with actual algorithm
+        UserStorage.remove(county);
+      }
+      
+      function fillDisplay() {
+        // TO-DO: replace with actual algorithm
+        for county in UserStorage.counties {
+          CountyList.add(CountyCard(county));
+        }
+      }
     }
-    ```
-
-  - saveLocation
-    - The saveLocation function is a controller that will save a location to a user&#39;s UserStorage Model
-    - Controller resides only on the client
-    - Code Snippet:
-  - unsaveLocation
-    - The unSaveLocation function is a controller that will unsave a location to a user&#39;s UserStorage Model
-    - Controller resides only on the client
-  - fillDisplay
-    - The fillDisplay function is a controller that will fill the user&#39;s home page with their saved locations, or search results dependent on if the user has made a search using the SearchBar view
-    - Controller resides only on the client
+  ```
