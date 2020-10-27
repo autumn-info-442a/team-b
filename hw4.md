@@ -138,6 +138,24 @@
       }
     }
     ```
+   - ColorScale
+      - This component is a view that contains color scale and accompanying text must meet color contrast guidelines (WCAG 2.1 AA) per RiskLevel controller.
+      - View resides only on the client
+      - Code Snippet:
+    ``` 
+    class ColorScale extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+              <NavigationBar/>
+              <div>
+               // place holder
+              </div>
+          )
+      }
+    }
+    ```
+    
 - UserController:
   - The UserController will handler user input in regards to saving and unsaving locations.
   ```
@@ -158,6 +176,14 @@
         // TO-DO: replace with actual algorithm
         for county in UserStorage.counties {
           CountyList.add(CountyCard(county));
+        }
+      }
+      
+      function RiskLevel() {
+        // TO-DO: replace with actual algorithm
+        for county in UserStorage.counties {
+          // Increase (or decrease)= New total cases (in the last 7 days) - Original total of cases 
+          // % increase (or decrease) = Increase ÷ Original total of cases × 100
         }
       }
     }
