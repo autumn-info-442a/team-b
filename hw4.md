@@ -23,13 +23,43 @@
   - NavigationBar
     - This component is a view that contains links to navigate the user to different parts of the web application
     - View resides only on the client
+    - Code Snippet:
+    ``` 
+    class Navigation Bar extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <NavBar>
+               <div><Link>Home</Link></div>
+               <div>BaseCheck</div>
+            </NavBar>
+          )
+      }
+    }
+    ```
   - CountyCardList
     - This component is a view that will contain 0 to many CountyCard views
     - This view also communicates with the UserStorage Model to populate saved locations when needed
     - View resides only on the client
+    - Code Snippet:
+    ``` 
+    class CountyCardList extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <div>
+              counties.map(() => {
+                list.add(county)
+              })
+            </div>
+          )
+      }
+    }
+    ```
   - USDashboard
     - This component is a view that will contain some Covid related information found in the UnitedStates Model
     - View resides only on the client
+    - Code Snippet:
     ``` 
     class USDashboard extends Component() {
       // TO-DO: Implement actual component
