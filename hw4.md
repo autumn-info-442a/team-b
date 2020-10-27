@@ -30,9 +30,43 @@
   - USDashboard
     - This component is a view that will contain some Covid related information found in the UnitedStates Model
     - View resides only on the client
+    ``` 
+    class USDashboard extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <div>
+              <div>
+                <p>Total Cases:</p>
+              </div>
+              <div>
+                <p>Total Cases (Last 7 Days):</p>
+              </div>
+              <div>
+                <p>Total Deaths:</p>
+              </div>
+            </div>
+          )
+      }
+    }
+    ```
   - CountyCard
     - This component is a view that will contain a preview of Covid related information found in the County Model
     - View resides only on the client
+    - Code Snippet:
+    ``` 
+    class CountyCard extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+              <p>
+                Total Cases: CountyModel.getCases();
+                Total Deaths: CountyMode.getDeaths();
+              </p>
+          )
+      }
+    }
+    ```
   - CountyDetail
     - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
     - View resides only on the client
