@@ -17,15 +17,38 @@
   - HomePage
     - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
     - View resides only on the client
+    ``` 
+    class HomePage extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <NavBar></NavBar>
+            <SearchBar/>
+            <CountyCardList/>
+            <USDashboard/>
+          )
+      }
+    }
+    ```
   - SearchBar
     - This component is a view that contains a search input field and autocomplete function.
     - View resides only on the client
+    ``` 
+    class SearchBar extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <input></input>
+          )
+      }
+    }
+    ```
   - NavigationBar
     - This component is a view that contains links to navigate the user to different parts of the web application
     - View resides only on the client
     - Code Snippet:
     ``` 
-    class Navigation Bar extends Component() {
+    class NavigationBar extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
