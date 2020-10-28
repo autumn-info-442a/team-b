@@ -1,18 +1,35 @@
 # Architecture
 
 - Models:
-  - County
-    - This component is a model that stores all the Covid related data associated with a specific county such as Covid Cases in the past day, past week, total deaths, etc found from the disease.sh API
+  - Location
+    - This component is a model that stores all the Covid related data associated with a specific location such as Covid Cases in the past day, past week, total deaths, etc found from the disease.sh API
     - Model resides only on the client
-    - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county
+    - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county as well as the USDashboard view
+    - Code Snippet:
+    ```
+    class Location extends Component {
+      //TO-DO: Implement actual component
+      render() {
+          return (
+          
+          )
+      }
+    }
+    ```
   - UserStorage
     - This component is a model that stores all of the users information like saved location, current location, and unique user url.
     - This model resides only on the client.
     - The UserStorage model will be used on the CountyCardList view, HomePage County card view and will interact with the saveLocation controller and unsavedLocation controller.
-  - UnitedStates
-    - This component is a model that stores the Covid related data associated with the United States Covid Cases in the past day, past week, total deaths, etc.
-    - Model resides only on the client
-    - The UnitedStates model will be used on the USDashboard view to display information such as total cases, total deaths, and the cases in the last 7 days for the whole US
+    - Code Snippet:
+    ```
+    class UserStorage extends Component {
+      //TO-DO: Implement actual component
+      render() {
+          return (
+          
+          )
+      }
+    }
 - View:
   - HomePage
     - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
