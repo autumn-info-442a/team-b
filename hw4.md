@@ -2,7 +2,7 @@
 
 - Models:
   - Location
-    - This component is a model that stores all the Covid related data associated with a specific location such as Covid Cases in the past day, past week, total deaths, etc found from the disease.sh API
+    - This component is a model that stores all the Covid related data associated with a specific location such as Covid Cases in the past day, past week, total deaths, etc found from the NovelCovid API
     - Model resides only on the client
     - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county as well as the USDashboard view
     - Code Snippet:
