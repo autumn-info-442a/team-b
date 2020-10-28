@@ -9,10 +9,12 @@
     ```
     class Location extends Component {
       //TO-DO: Implement actual component
-      render() {
-          return (
-          
-          )
+      constructor(props) {
+        super(props);
+        this.state = {
+          cases = 10323;
+          deaths = 1312;
+        }
       }
     }
     ```
@@ -24,10 +26,11 @@
     ```
     class UserStorage extends Component {
       //TO-DO: Implement actual component
-      render() {
-          return (
-          
-          )
+      constructor(props) {
+        super(props);
+        this.state = {
+          locations = [];
+        }
       }
     }
 - View:
