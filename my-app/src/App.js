@@ -7,7 +7,7 @@ import { AppBar, Toolbar } from '@material-ui/core';
 function App() {
   return (
     <Router>
-      <AppBar color="primary" position="fixed">
+      <AppBar position="fixed">
         <Toolbar className="tool-bar">
             <h1>BaseCheck</h1>
             <a className="tool-link" href="/">Home</a>
