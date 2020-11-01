@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
-import { AppBar, Toolbar, IconButton, MenuIcon, Typography, classes, Button } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 function App() {
   return (
@@ -10,12 +10,13 @@ function App() {
       <AppBar color="primary" position="fixed">
         <Toolbar className="tool-bar">
             <h1>BaseCheck</h1>
-            <a href="/">Home</a>
+            <a className="tool-link" href="/">Home</a>
         </Toolbar>
       </AppBar>
       <Switch>
           <Route exact path='/'><HomePage/></Route>
           <Route path='/county/'></Route>
+          <Route path='/search/'></Route>
           <Redirect to='/'/>
       </Switch>
     </Router>

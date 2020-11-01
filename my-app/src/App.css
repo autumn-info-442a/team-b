@@ -29,6 +29,11 @@
   justify-content: space-between;
 }
 
+.tool-link {
+  color: white;
+  font-size: 1.3rem;
+}
+
 .App-link {
   color: #61dafb;
 }
