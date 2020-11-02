@@ -6,7 +6,7 @@
     - Model resides only on the client
     - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county as well as the USDashboard view
     - Code Snippet:
-    ```
+    ```jsx
     class Location extends Component {
       //TO-DO: Implement actual component
       constructor(props) {
@@ -23,7 +23,7 @@
     - This model resides only on the client.
     - The UserStorage model will be used on the CountyCardList view, HomePage County card view and will interact with the saveLocation controller and unsavedLocation controller.
     - Code Snippet:
-    ```
+    ```jsx
     class UserStorage extends Component {
       //TO-DO: Implement actual component
       constructor(props) {
@@ -37,7 +37,7 @@
   - HomePage
     - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
     - View resides only on the client
-    ``` 
+    ```jsx
     class HomePage extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -53,7 +53,7 @@
   - SearchBar
     - This component is a view that contains a search input field and autocomplete function.
     - View resides only on the client
-    ``` 
+    ```jsx
     class SearchBar extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -67,7 +67,7 @@
     - This component is a view that contains links to navigate the user to different parts of the web application
     - View resides only on the client
     - Code Snippet:
-    ``` 
+    ```jsx
     class NavigationBar extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -85,7 +85,7 @@
     - This view also communicates with the UserStorage Model to populate saved locations when needed
     - View resides only on the client
     - Code Snippet:
-    ``` 
+    ```jsx
     class CountyCardList extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -103,7 +103,7 @@
     - This component is a view that will contain some Covid related information found in the UnitedStates Model
     - View resides only on the client
     - Code Snippet:
-    ``` 
+    ```jsx
     class USDashboard extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -127,7 +127,7 @@
     - This component is a view that will contain a preview of Covid related information found in the County Model
     - View resides only on the client
     - Code Snippet:
-    ``` 
+    ```jsx
     class CountyCard extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -144,7 +144,7 @@
     - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
     - View resides only on the client
     - Code Snippet:
-    ``` 
+    ```jsx
     class CountyDetail extends Component() {
       // TO-DO: Implement actual component
       render() {
@@ -162,23 +162,23 @@
       - This component is a view that contains color scale and accompanying text must meet color contrast guidelines (WCAG 2.1 AA) per RiskLevel controller.
       - View resides only on the client
       - Code Snippet:
-    ``` 
-    class ColorScale extends Component() {
-      // TO-DO: Implement actual component
-      render() {
-          return (
-              <NavigationBar/>
-              <div>
-               // place holder
-              </div>
-          )
+      ```jsx
+      class ColorScale extends Component() {
+        // TO-DO: Implement actual component
+        render() {
+            return (
+                <NavigationBar/>
+                <div>
+                // place holder
+                </div>
+            )
+        }
       }
-    }
-    ```
+      ```
     
 - UserController:
   - The UserController will handler user input in regards to saving and unsaving locations.
-  ```
+  ```jsx
     // Handles adding/removing saved locations for a user
     class UserController extends Component {
       // saves a location to the UserStorage Model
