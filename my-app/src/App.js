@@ -17,7 +17,7 @@ function App() {
       </header>
       <Switch>
           <Route exact path='/'><HomePage/></Route>
-          <Route path='/county/'></Route>
+          <Route path='/county/'><CountyDetail/></Route>
           <Route path='/search/'></Route>
           <Redirect to='/'/>
       </Switch>
@@ -26,41 +26,63 @@ function App() {
 }
 
 function HomePage() {
-    return (
-      <main className="home-page">
-        <div className="page-header">
-          <h2>COVID-19 Cases Today Across the Country</h2>
-          <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-        </div>
-        <div>
-
-        </div>
-        <div>
-          <p>You have 0 saved locations right now</p>
-        </div>
-        <div>
-
-        </div>
-      </main>
-      /*
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+  return (
+    <main className="home-page">
+      <div className="page-header">
+        <h2>COVID-19 Cases Today Across the Country</h2>
+        <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
       </div>
-      */
-    );
+      <CountyCardList/>
+      <div>
+
+      </div>
+    </main>
+  );
+}
+
+/*
+  Component that will act a a container to hold each CountyCard Component.
+*/
+function CountyCardList() {
+  return (
+    <div>
+      <p>You have 0 saved locations right now</p>
+      <div>
+
+      </div>
+    </div>
+  );
+}
+
+/*
+  Component that represents a County Page.
+*/
+function CountyDetail() {
+  return (
+    /*
+    <main>
+    </main>
+    */
+    <main className="county-page">
+      <div className="county-header">
+          <h2>King County, WA</h2>
+          <p><b>Risk Level: High</b></p>
+      </div>
+      <div className="county-body">
+        <div className="county-main">
+          <div className="county-stats">
+            <p>New Cases (1 Day):</p>
+            <p>New Cases (7 Days):</p>
+            <p>Total Cases:</p>
+            <p>Total Deaths:</p>
+            <p>Last Updated: 12 hours ago</p>
+          </div>
+          <div className="county-visual"></div>
+        </div>
+        <div></div>
+      </div>
+    </main>
+  );
 }
 
 export default App;
