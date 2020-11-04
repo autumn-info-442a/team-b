@@ -48,8 +48,8 @@ function HomePage() {
       <div className="page-header">
         <h2>COVID-19 Cases Today Across the Country</h2>
         <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-        <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)}></input>
-        <button onClick={handleSearch}>Search!</button>
+        <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
+        <button className="search-button" onClick={handleSearch}>Search!</button>
       </div>
       {search !== "" ? <CountyCardList counties={counties} search={search}/> : <CountyCardList/>}
       <div>
@@ -66,7 +66,7 @@ function CountyCardList(props) {
     if (props.counties.length > 0) {
       return (
         <div className="list">
-        <p>{props.counties.length} search results found...</p>
+          <p>{props.counties.length} search results found for "{props.search}"</p>
         <div className="card-container">
   
         </div>
@@ -74,8 +74,9 @@ function CountyCardList(props) {
       );
     } else {
       return (
-        <div className="list">
-        <p>Unfortunately, we have no results for "{props.search}"</p>
+        <div className="empty-list">
+          <p>Unfortunately, we have no results for "{props.search}"</p>
+          <img src="error.jpg"></img>
         </div>
       );
     }

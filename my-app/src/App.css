@@ -18,6 +18,22 @@
   width: 80%;
 }
 
+.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search {
+  width: 85%;
+  height: 2em;
+}
+
+.search-button {
+  height: 2.5em;
+}
+
 .card-container {
   width: 100%;
   min-height: 300px;
