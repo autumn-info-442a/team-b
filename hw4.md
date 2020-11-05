@@ -176,35 +176,29 @@
       }
       ```
     
-- UserController:
-  - The UserController will handler user input in regards to saving and unsaving locations.
-  ```jsx
-    // Handles adding/removing saved locations for a user
-    class UserController extends Component {
-      // saves a location to the UserStorage Model
-      function saveLocation(String county) {
-        // TO-DO: replace with actual algorithm
-        UserStorage.add(county);
-      }
+Controllers:
+  ```
+    // saves a location to the UserStorage Model
+    function saveLocation(String county) {
+      // TO-DO: replace with actual algorithm
+      localStorage.get(counties).add(county);
+    }
       
-      function unSaveLocation(String county ) {
-        // TO-DO: replace with actual algorithm
-        UserStorage.remove(county);
-      }
+    function unSaveLocation(String county ) {
+      // TO-DO: replace with actual algorithm
+      localStorage.get(counties).remove(county);
+    }
       
-      function fillDisplay() {
-        // TO-DO: replace with actual algorithm
-        for county in UserStorage.counties {
-          CountyList.add(CountyCard(county));
-        }
+    function fillDisplay() {
+      // TO-DO: replace with actual algorithm
+      for county in UserStorage.counties {
+        CountyList.add(CountyCard(county));
       }
-      
-      function RiskLevel() {
-        // TO-DO: replace with actual algorithm
-        for county in UserStorage.counties {
-          // Increase (or decrease)= New total cases (in the last 7 days) - Original total of cases 
-          // % increase (or decrease) = Increase ÷ Original total of cases × 100
-        }
-      }
+    }
+    
+    function RiskLevel() {
+      // TO-DO: replace with actual algorithm
+      // Increase (or decrease)= New total cases (in the last 7 days) - Original total of cases 
+      // % increase (or decrease) = Increase ÷ Original total of cases × 100
     }
   ```
