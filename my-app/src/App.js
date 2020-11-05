@@ -26,21 +26,28 @@ function App() {
 
 function HomePage() {
 
-  const [input, setInput] = useState("");
-
   return (
     <main className="home-page">
-      <div className="page-header">
-        <h2>COVID-19 Cases Today Across the Country</h2>
-        <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-        <form>
-          <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
-        </form>
-        <a href={'/search/' + input} className="search-button">Search!</a>
-      </div>
+      <SearchBar/>
       <div>
       </div>
     </main>
+  );
+}
+
+function SearchBar() {
+
+  const [input, setInput] = useState("");
+
+  return (
+    <div className="page-header">
+      <h2>COVID-19 Cases Today Across the Country</h2>
+      <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
+      <form>
+        <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
+      </form>
+      <a href={'/search/' + input} className="search-button">Search!</a>
+    </div>
   );
 }
 
@@ -49,7 +56,6 @@ function SearchPage() {
   let { county } = useParams();
   const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
   const [counties, setCounties] = useState([]);
-  const [input, setInput] = useState(county);
 
   useEffect(() => {
     fetch(baseUri + county)
@@ -64,14 +70,7 @@ function SearchPage() {
 
   return (
     <main className="home-page">
-      <div className="page-header">
-        <h2>COVID-19 Cases Today Across the Country</h2>
-        <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-        <form>
-          <input type="text" value={input} placeholder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
-        </form>
-        <a href={'/search/' + input} className="search-button">Search!</a>
-      </div>
+      <SearchBar/>
       <CountyCardList counties={counties} search={county}/>
       <div>
       </div>
@@ -141,6 +140,17 @@ function CountyDetail(props) {
     )
   } else {
   */
+  if (!location) {
+    return (
+      <main className="home-page">
+        <SearchBar/>
+        <div className="empty-header">
+          <p>Looking for County Information...</p>
+          <p>Taking too long? Likely the county does not exist in the state that you're looking for or our servers are down</p>
+        </div>
+      </main>
+    );
+  }
   return (
     <main className="more-info">
       <div className="county-page">
