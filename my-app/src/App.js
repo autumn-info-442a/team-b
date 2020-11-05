@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect, useParams } from 'react-router-dom';
 import './App.css';
 import { Toolbar } from '@material-ui/core';
 
@@ -18,7 +17,7 @@ function App() {
       <Switch>
           <Route exact path='/'><HomePage/></Route>
           <Route path='/county/'><CountyDetail/></Route>
-          <Route path='/search/'></Route>
+          <Route path='/search/:county'><SearchPage/></Route>
           <Redirect to='/'/>
       </Switch>
     </Router>
@@ -27,21 +26,7 @@ function App() {
 
 function HomePage() {
 
-  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
-  const [search, setSearch] = useState("");
-  const [counties, setCounties] = useState([]);
   const [input, setInput] = useState("");
-
-  async function handleSearch() {
-    await fetch(baseUri + input)
-    .then((response) => response.json())
-    .then((responseData) => {
-      setSearch(input);
-      setCounties(responseData);
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
 
   return (
     <main className="home-page">
@@ -49,13 +34,48 @@ function HomePage() {
         <h2>COVID-19 Cases Today Across the Country</h2>
         <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
         <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
-        <button className="search-button" onClick={handleSearch}>Search!</button>
+        <a href={'/search/' + input} className="search-button">Search!</a>
       </div>
-      {search !== "" ? <CountyCardList counties={counties} search={search}/> : <CountyCardList/>}
       <div>
       </div>
     </main>
   );
+}
+
+function SearchPage() {
+
+  let { county } = useParams();
+
+  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
+  const [search, setSearch] = useState("");
+  const [counties, setCounties] = useState([]);
+  const [input, setInput] = useState(county);
+
+  useEffect(() => {
+    fetch(baseUri + county)
+    .then((response) => response.json())
+    .then((responseData) => {
+      setSearch(input);
+      setCounties(responseData);
+    }).catch((err) => {
+      console.log(err);
+    });
+  });
+
+  return (
+    <main className="home-page">
+      <div className="page-header">
+        <h2>COVID-19 Cases Today Across the Country</h2>
+        <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
+        <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
+        <a href={'/search/' + input} className="search-button">Search!</a>
+      </div>
+      <CountyCardList counties={counties} search={search}/>
+      <div>
+      </div>
+    </main>
+  );
+
 }
 
 /*
@@ -76,7 +96,7 @@ function CountyCardList(props) {
       return (
         <div className="empty-list">
           <p>Unfortunately, we have no results for "{props.search}"</p>
-          <img src="error.jpg"></img>
+          <img src="error.jpg" alt="no results found"></img>
         </div>
       );
     }
