@@ -32,17 +32,19 @@ _EOD = end of day_
 
 - 11/9 Homework 5: Plan
 - 12/9 Homework 6: Release
-    1. EOD 11/6 HomePage, NavigationBar components
-    2. EOD 11/10 County Card component
-    3. EOD 11/10 US Dashboard component
-    4. EOD 11/14 Search Bar component
-    5. EOD 11/14 Location, CountyCardList, CountyDetail, saveLocation, unSaveLocation, fillDisplay components
-    6. EOD 11/14 Dialog/confirmation box
-    7. EOD 11/21 RiskLevel. ColorScale
-    8. EOD 11/30 Layout fixing
-    9. EOD 11/30Jest test
-    10. EOD 12/2 Perform final manual acceptance testing plan outlined below
-    11. EOD 12/7 Fix any and all outstanding issues that were observed during testing
+    1. Sprint 1
+        - EOD 11/6 HomePage, NavigationBar components
+        - EOD 11/10 County Card component
+        - EOD 11/10 US Dashboard component
+        - EOD 11/14 Search Bar component
+        - EOD 11/14 Location, CountyCardList, CountyDetail, saveLocation, unSaveLocation, fillDisplay components
+        - EOD 11/14 Dialog/confirmation box
+    2. Sprint 2
+        - EOD 11/21 RiskLevel. ColorScale
+        - EOD 11/30 Layout fixing
+        - EOD 11/30Jest test
+        - EOD 12/2 Perform final manual acceptance testing plan outlined below
+        - EOD 12/7 Fix any and all outstanding issues that were observed during testing
 - 12/14 Homework 7: Evaluate
 - 12/16 Homework 8: Triage
 - 12/18 Homework 9: Reflect
