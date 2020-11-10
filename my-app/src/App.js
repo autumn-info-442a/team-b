@@ -43,9 +43,7 @@ function SearchBar() {
     <div className="page-header">
       <h2>COVID-19 Cases Today Across the Country</h2>
       <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-      <form>
-        <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
-      </form>
+      <input type="text" value={input} placeHolder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
       <a href={'/search/' + input} className="search-button">Search!</a>
     </div>
   );
@@ -83,13 +81,18 @@ function SearchPage() {
   Component that will act a a container to hold each CountyCard Component.
 */
 function CountyCardList(props) {
+  console.log(props.counties);
+
   if (props.counties) {
     if (props.counties.length > 0) {
+      let counties = props.counties.map((county) => {
+        return <div><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
+      });
       return (
         <div className="list">
           <p>{props.counties.length} search results found for "{props.search}"</p>
         <div className="card-container">
-  
+          {counties}
         </div>
       </div>
       );
@@ -117,64 +120,51 @@ function CountyDetail(props) {
   county = county.charAt(0).toUpperCase() + county.slice(1);
   state = state.charAt(0).toUpperCase() + state.slice(1);
   const [location, setLocation] = useState();
-  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
+  const [hasCounty, setHasCounty] = useState(false);
+  const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
 
   useEffect(() => {
-    fetch(baseUri + county)
-    .then((response) => response.json())
+    fetch(requestUri).then((response) => response.json())
     .then((responseData) => {
-      responseData.map((data) => {
-        if (data.province === state) {
-          setLocation(data);
-          console.log(location);
-        }
-      });
-    }).catch((err) => {
+      let data = responseData[0];
+      setLocation(data);
+    })
+    .catch((err) => {
       console.log(err);
     });
   }, []);
-  /*
-  if (location === null) {
-    return (
-      <p>Error: County does not exist!</p>
-    )
-  } else {
-  */
+
+
   if (!location) {
     return (
-      <main className="home-page">
-        <SearchBar/>
-        <div className="empty-header">
-          <p>Looking for County Information...</p>
-          <p>Taking too long? Likely the county does not exist in the state that you're looking for or our servers are down</p>
-        </div>
-      </main>
+      <div></div>
     );
   }
   return (
     <main className="more-info">
-      <div className="county-page">
-        <div className="county-header">
-            <div>
-              <a className="back" href={'/search/' + county}>Back</a>
-            </div>
-            <div>
-              <h2>{county} County, {state}</h2>
-              <p><b>Risk Level: {props.risk}</b></p>
-            </div>
-            <div className="favorite">
-              <button >*</button>
-            </div>
-        </div>
-        <div className="county-body">
-          <div className="county-main">
-            <div className="county-stats">
-              <p>Confirmed Cases: {location ? location.stats.confirmed : "N/A"}</p>
-              <p>Total Deaths: {location ? location.stats.deaths : "N/A"}</p>
-              <p>Total Recovered: {location ? location.stats.recovered : "N/A"}</p>
-              <p>Last Updated: {location ? location.updatedAt : "N/A"}</p>
-            </div>
-            <div className="county-visual"></div>
+    <div className="county-page">
+      <div className="county-header">
+          <div>
+            <a className="back" href={'/search/' + county}>Back</a>
+          </div>
+          <div>
+            <h2>{county} County, {state}</h2>
+            <p><b>Risk Level: {props.risk}</b></p>
+          </div>
+          <div className="favorite">
+            <button >*</button>
+          </div>
+      </div>
+      <div className="county-body">
+        <div className="county-main">
+          <div className="county-stats">
+            <p>Total Cases: <b>{location ? location["cnt"] : "N/A"}</b></p>
+            <p>New Cases (2 Weeks): <b>{location ? location["2wd"] : "N/A"}</b></p>
+            <p>New Cases (1 Week): <b>{location ? location["1wd"] : "N/A"}</b></p>
+            <p>New Cases (1 Day): <b>{location ? location["1dd"] : "N/A"}</b></p>
+            <p>Last Updated: <b>{location ? location.date.split(" ")[0] : "N/A"}</b></p>
+          </div>
+          <div className="county-visual"></div>
           </div>
         </div>
       </div>
