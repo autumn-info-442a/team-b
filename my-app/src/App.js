@@ -81,13 +81,18 @@ function SearchPage() {
   Component that will act a a container to hold each CountyCard Component.
 */
 function CountyCardList(props) {
+  console.log(props.counties);
+
   if (props.counties) {
     if (props.counties.length > 0) {
+      let counties = props.counties.map((county) => {
+        return <div><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
+      });
       return (
         <div className="list">
           <p>{props.counties.length} search results found for "{props.search}"</p>
         <div className="card-container">
-  
+          {counties}
         </div>
       </div>
       );
