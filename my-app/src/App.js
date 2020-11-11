@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, useParams } from 'react-router-dom';
+import LineGraph from './components/LineGraph';
 import './App.css';
 import { Toolbar } from '@material-ui/core';
 
@@ -106,7 +107,7 @@ function CountyCardList(props) {
     }
   } else  {
     return (
-      <p>Hello!</p>
+      <div></div>
     );
   }
 }
@@ -164,7 +165,9 @@ function CountyDetail(props) {
             <p>New Cases (1 Day): <b>{location ? location["1dd"] : "N/A"}</b></p>
             <p>Last Updated: <b>{location ? location.date.split(" ")[0] : "N/A"}</b></p>
           </div>
-          <div className="county-visual"></div>
+          <div className="county-visual">
+            {location ? <LineGraph location={location}/> : <div></div>}
+          </div>
           </div>
         </div>
       </div>
