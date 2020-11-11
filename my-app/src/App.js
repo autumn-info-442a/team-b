@@ -143,31 +143,31 @@ function CountyDetail(props) {
   }
   return (
     <main className="more-info">
-    <div className="county-page">
-      <div className="county-header">
-          <div>
-            <a className="back" href={'/search/' + county}>Back</a>
-          </div>
-          <div>
-            <h2>{county} County, {state}</h2>
-            <p><b>Risk Level: {props.risk}</b></p>
-          </div>
-          <div className="favorite">
-            <button >*</button>
-          </div>
-      </div>
-      <div className="county-body">
-        <div className="county-main">
-          <div className="county-stats">
-            <p>Total Cases: <b>{location ? location["cnt"] : "N/A"}</b></p>
-            <p>New Cases (2 Weeks): <b>{location ? location["2wd"] : "N/A"}</b></p>
-            <p>New Cases (1 Week): <b>{location ? location["1wd"] : "N/A"}</b></p>
-            <p>New Cases (1 Day): <b>{location ? location["1dd"] : "N/A"}</b></p>
-            <p>Last Updated: <b>{location ? location.date.split(" ")[0] : "N/A"}</b></p>
-          </div>
-          <div className="county-visual">
-            {location ? <LineGraph location={location}/> : <div></div>}
-          </div>
+      <div className="county-page">
+        <div className="county-header">
+            <div>
+              <a className="back" href={'/search/' + county}>Back</a>
+            </div>
+            <div>
+              <h2>{county} County, {state}</h2>
+              <p><b>Risk Level: {props.risk}</b></p>
+            </div>
+            <div className="favorite">
+              <button>Like</button>
+            </div>
+        </div>
+        <div className="county-body">
+          <div className="county-main">
+            <div className="county-stats">
+              <p>Total Cases: <b>{location ? location["cnt"] : "N/A"}</b></p>
+              <p>New Cases (2 Weeks): <b>{location ? location["2wd"] : "N/A"}</b></p>
+              <p>New Cases (1 Week): <b>{location ? location["1wd"] : "N/A"}</b></p>
+              <p>New Cases (1 Day): <b>{location ? location["1dd"] : "N/A"}</b></p>
+              <p>Last Updated: <b>{location ? location.date.split(" ")[0] : "N/A"}</b></p>
+            </div>
+            <div className="county-visual">
+              {location ? <LineGraph location={location}/> : <div></div>}
+            </div>
           </div>
         </div>
       </div>
