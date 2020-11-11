@@ -49,27 +49,34 @@ function SearchPage() {
   let { county } = useParams();
   const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
   const [counties, setCounties] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetch(baseUri + county)
     .then((response) => response.json())
     .then((responseData) => {
       setCounties(responseData);
-      console.log(responseData);
-    }).catch((err) => {
+    })
+    .then(() => {
+      setLoaded(true);
+    })
+    .catch((err) => {
       console.log(err);
     });
   }, []);
 
-  return (
-    <main className="home-page">
-      <SearchBar/>
-      <CountyCardList counties={counties} search={county}/>
-      <div>
-      </div>
-    </main>
-  );
-
+  if (counties) {
+    return (
+      <main className="home-page">
+        <SearchBar/>
+        <CountyCardList counties={counties} loaded={loaded} search={county}/>
+        <div>
+        </div>
+      </main>
+    );
+  } else {
+    return <div></div>
+  }
 }
 
 export default App;
