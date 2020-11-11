@@ -13,7 +13,7 @@ export default function CountyCardList(props) {
 
     if (props.counties.length > 0) {
         let counties = props.counties.map((county) => {
-        return <div><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
+            return <div key={county.county + ", " + county.province}><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
         });
         return (
             <div className="list">
