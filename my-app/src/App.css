@@ -160,6 +160,11 @@ h2 {
   margin: 2em;
 }
 
+.county-error {
+  font-size: 1em;
+  color: red;
+}
+
 
 /*
   Navigation Bar related CSS
@@ -179,4 +184,14 @@ h2 {
 .tool-link {
   color: white;
   font-size: 1.3rem;
+}
+
+
+/*
+  Loading
+*/
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 10em;
 }

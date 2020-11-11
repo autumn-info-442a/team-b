@@ -1,6 +1,8 @@
 import React, { useState, useEffect }from 'react';
 import { useParams } from 'react-router-dom';
 import LineGraph from './LineGraph';
+import SearchBar from './SearchBar';
+import { Ring } from 'react-awesome-spinners';
 
 /*
   Component that represents a County Page.
@@ -12,6 +14,7 @@ export default function CountyDetail(props) {
     state = state.charAt(0).toUpperCase() + state.slice(1);
     const [location, setLocation] = useState();
     const [hasCounty, setHasCounty] = useState(false);
+    const [loaded, setLoaded] = useState(false);
     const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
   
     useEffect(() => {
@@ -20,17 +23,33 @@ export default function CountyDetail(props) {
         let data = responseData[0];
         setLocation(data);
       })
+      .then(() => {
+        setLoaded(true);
+      })
       .catch((err) => {
         console.log(err);
       });
     }, []);
-  
+
+    if (!loaded) {
+      return (
+        <div className="loading">
+          <Ring/>
+        </div>
+      );
+    }
   
     if (!location) {
       return (
-        <div></div>
+        <main className="home-page">
+          <SearchBar/>
+          <div className="county-error">
+            <b>Sorry, it seems that we could not find data for the County that you are looking for. Please try again.</b>
+          </div>
+        </main>
       );
     }
+
     return (
       <main className="more-info">
         <div className="county-page">

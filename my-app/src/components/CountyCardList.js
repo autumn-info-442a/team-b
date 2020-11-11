@@ -1,4 +1,5 @@
 import React from 'react';
+import { Ring } from 'react-awesome-spinners';
 
 /*
 Component that will act a a container to hold each CountyCard Component.
@@ -6,7 +7,7 @@ Component that will act a a container to hold each CountyCard Component.
 export default function CountyCardList(props) {
     if (!props.loaded) {
         return (
-            <div></div>
+            <div><Ring/></div>
         );
     }
 
