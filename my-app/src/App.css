@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
+
 /*
   Home Page related CSS
 */
-.html {
-  background-color: #E5E5E5;
-}
 
 .home-page {
   display: flex;
@@ -11,6 +10,7 @@
   align-items: center;
   flex-direction: column;
   margin: 2em;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .page-header {
@@ -39,15 +39,10 @@
   color: black;
 }
 
-.card-container {
-  width: 100%;
-  min-height: 300px;
-  height: auto;
-  background-color: grey;
-}
-
 h2 {
   font-size: xx-large;
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: bold;
 }
 
 
@@ -194,4 +189,61 @@ h2 {
   display: flex;
   justify-content: center;
   margin-top: 10em;
+}
+
+
+/*
+  Card Container
+*/
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+}
+
+/*
+  Card
+*/
+.card {
+  background-color: white;
+  width: 300px;
+  height: 250px;
+  border: 1px solid grey;
+  margin: 1em;
+  box-shadow: 3px 3px grey;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card:focus, .card:active, .card:hover {
+  box-shadow: none;
+}
+
+.card-body {
+  background-color: #0E1B5B;
+  ;
+  height: 70%;
+}
+
+.card-footer {
+  height: 30%;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-name {
+  font-size: 20px;
+}
+
+.card-time {
+  font-size: 12px;
 }
