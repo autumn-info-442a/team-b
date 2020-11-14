@@ -31,10 +31,21 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
+  if (!localStorage.getItem("counties")) {
+    let saved = [];
+    localStorage.setItem("counties", JSON.stringify(saved));
+  }
+  console.log(localStorage.getItem("counties"));
+  let savedLocations = JSON.parse(localStorage.getItem("counties"));
+
   return (
     <main className="home-page">
       <SearchBar/>
       <div>
+        <h2>Saved Locations:</h2>
+      </div>
+      <div>
+
       </div>
     </main>
   );
