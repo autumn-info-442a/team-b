@@ -4,6 +4,7 @@ import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
+import UsDashboard from './components/UsDashboard';
 import { Toolbar } from '@material-ui/core';
 
 function App() {
@@ -45,7 +46,7 @@ function HomePage() {
         <h2>Saved Locations:</h2>
       </div>
       <div>
-
+      <UsDashboard/>
       </div>
     </main>
   );
