@@ -1,5 +1,6 @@
 import React from 'react';
 import { Ring } from 'react-awesome-spinners';
+import Card from './Card';
 
 /*
 Component that will act a a container to hold each CountyCard Component.
@@ -13,7 +14,10 @@ export default function CountyCardList(props) {
 
     if (props.counties.length > 0) {
         let counties = props.counties.map((county) => {
-            return <div key={county.county + ", " + county.province}><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
+            return (
+                <Card county={county}/>
+                //<div key={county.county + ", " + county.province}><a href={"/county/" + county.county + "/" + county.province}>{county.county + ", " + county.province}</a></div>
+            );
         });
         return (
             <div className="list">
