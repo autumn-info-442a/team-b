@@ -50,9 +50,11 @@ export default function CountyDetail(props) {
     }
 
     function saveLocation() {
+      /*
       let saved = JSON.parse(localStorage.getItem("counties"));
       saved.push(county + "," + state);
       localStorage.setItem("counties", saved);
+      */
     }
 
     return (
