@@ -13,6 +13,7 @@ export default function CountyDetail(props) {
     county = county.charAt(0).toUpperCase() + county.slice(1);
     state = state.charAt(0).toUpperCase() + state.slice(1);
     const [location, setLocation] = useState();
+    const [risk, setRisk] = useState("Not Enough Information");
     const [loaded, setLoaded] = useState(false);
     const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
   
@@ -21,6 +22,13 @@ export default function CountyDetail(props) {
       .then((responseData) => {
         let data = responseData[0];
         setLocation(data);
+        if (data["1dd"] >= 500) {
+          setRisk("High");
+        } else if (data["1dd"] > 250 && data["1dd"] < 500) {
+          setRisk("Medium");
+        } else if (data["1dd"] < 250 && data["1dd"] > 0) {
+          setRisk("Low");
+        }
       })
       .then(() => {
         setLoaded(true);
@@ -66,7 +74,7 @@ export default function CountyDetail(props) {
               </div>
               <div>
                 <h2>{county} County, {state}</h2>
-                <p><b>Risk Level: {props.risk}</b></p>
+                <p><b>Risk Level: {risk}</b></p>
               </div>
               <div className="favorite">
                 <button onClick={saveLocation}>Like</button>
