@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
+import styled from 'styled-components'
 
 /*
   Component that represents a County Page.
@@ -68,7 +69,7 @@ export default function CountyDetail(props) {
     return (
       <main className="more-info">
         <div className="county-page">
-          <div className="county-header">
+          <div className="county-header county-risk">
               <div>
                 <a className="back" href={'/search/' + county}>Back</a>
               </div>
