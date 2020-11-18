@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
-import AlertDialog from './ConfirmationDialog'
 
 /*
   Component that represents a County Page.
@@ -70,8 +69,7 @@ export default function CountyDetail(props) {
                 <p><b>Risk Level: {props.risk}</b></p>
               </div>
               <div className="favorite">
-                {/* <button onClick={saveLocation}>Like</button> */}
-                <AlertDialog onClick={saveLocation}></AlertDialog>
+                <button onClick={saveLocation}>Like</button>
               </div>
           </div>
           <div className="county-body">

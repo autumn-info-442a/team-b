@@ -62,7 +62,7 @@ function HomePage() {
 function SearchPage() {
 
   let { county } = useParams();
-  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
+  const baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -70,6 +70,7 @@ function SearchPage() {
     fetch(baseUri + county)
     .then((response) => response.json())
     .then((responseData) => {
+      console.log(baseUri);
       console.log(responseData);
       setCounties(responseData);
     })
