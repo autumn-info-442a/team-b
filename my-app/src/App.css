@@ -13,6 +13,22 @@
   font-family: 'Encode Sans', sans-serif;
 }
 
+.baseCheck {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+  text-decoration: underline;
+}
+
 .page-header {
   text-align: center;
 }
@@ -62,7 +78,9 @@ h2 {
   flex-direction: column;
   width: 80%;
   margin-top: 3em;
-  border: 10px solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 3em;
 }
 
 .county-header {
@@ -76,8 +94,23 @@ h2 {
   color: white;
 }
 
-.county-risk {
+.county-High {
   background-color: #DC3220;
+  opacity: 0.8;
+}
+
+.county-Medium {
+  background-color: #E66100;
+  opacity: 0.8;
+}
+
+.county-Low {
+  background-color: #FFC20A;
+  opacity: 0.8;
+}
+
+.county-NA {
+  background-color: black;
 }
 
 .back {

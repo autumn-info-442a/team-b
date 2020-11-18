@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
-import styled from 'styled-components'
+import AlertDialog from './ConfirmationDialog';
+import styled from 'styled-components';
 
 /*
   Component that represents a County Page.
@@ -14,7 +15,7 @@ export default function CountyDetail(props) {
     county = county.charAt(0).toUpperCase() + county.slice(1);
     state = state.charAt(0).toUpperCase() + state.slice(1);
     const [location, setLocation] = useState();
-    const [risk, setRisk] = useState("Not Enough Information");
+    const [risk, setRisk] = useState("NA");
     const [loaded, setLoaded] = useState(false);
     const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
   
@@ -69,16 +70,17 @@ export default function CountyDetail(props) {
     return (
       <main className="more-info">
         <div className="county-page">
-          <div className="county-header county-risk">
+          <div className={"county-header county-" + risk}>
               <div>
                 <a className="back" href={'/search/' + county}>Back</a>
               </div>
               <div>
                 <h2>{county} County, {state}</h2>
-                <p><b>Risk Level: {risk}</b></p>
+                <h3><b>Risk Level: {risk}</b></h3>
               </div>
               <div className="favorite">
-                <button onClick={saveLocation}>Like</button>
+                {/* <button onClick={saveLocation}>Like</button> */}
+                <AlertDialog onClick={saveLocation}></AlertDialog>
               </div>
           </div>
           <div className="county-body">

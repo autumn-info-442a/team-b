@@ -12,8 +12,7 @@ function App() {
       <header>
         <div className="nav-bar">
           <Toolbar className="tool-bar">
-              <h1>BaseCheck</h1>
-              <a className="tool-link" href="/">Home</a>
+              <a className="baseCheck" href="/">BaseCheck</a>
           </Toolbar>
         </div>
       </header>
