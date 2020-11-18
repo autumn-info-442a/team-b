@@ -4,7 +4,6 @@ import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
-import styled from 'styled-components';
 
 /*
   Component that represents a County Page.
