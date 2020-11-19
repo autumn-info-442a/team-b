@@ -61,15 +61,20 @@ function HomePage() {
 function SearchPage() {
 
   let { county } = useParams();
-  const baseUri = "https://covercovid-19.com/search/" + county;
+  const baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  console.log(baseUri);
 
   useEffect(() => {
     fetch(baseUri, {
       method: 'GET',
-      mode: 'no-cors',
-      cache: 'default'
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
     })
     .then((response) => response.json())
     .then((responseData) => {
