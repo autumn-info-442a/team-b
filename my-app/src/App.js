@@ -12,8 +12,7 @@ function App() {
       <header>
         <div className="nav-bar">
           <Toolbar className="tool-bar">
-              <h1>BaseCheck</h1>
-              <a className="tool-link" href="/">Home</a>
+              <a className="baseCheck" href="/">BaseCheck</a>
           </Toolbar>
         </div>
       </header>
@@ -62,15 +61,22 @@ function HomePage() {
 function SearchPage() {
 
   let { county } = useParams();
-  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
+  const baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(baseUri + county)
+    fetch(baseUri, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
+    })
     .then((response) => response.json())
     .then((responseData) => {
-      console.log(responseData);
       setCounties(responseData);
     })
     .then(() => {
