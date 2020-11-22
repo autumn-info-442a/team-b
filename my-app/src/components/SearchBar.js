@@ -30,21 +30,7 @@ export default function SearchBar() {
       <a href={'/search/' + input} className="search-button">Search!</a>
     </div>
   );
-
-      /*
-                  inputValue={input}
-            onInputChange={(event, input) => {
-              setInput(input.title);
-              console.log(input.title);
-            }}
-
-
-      <TextField type="text" value={input} onChange={e => setInput(e.target.value)}/>        
-      <input type="text" value={input} placeholder="search for a county" onChange={e => setInput(e.target.value)} className="search" autocomplete="on"></input>
-      */
 }
-
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/to
 
 const counties = [
   { title: 'Orange'},
