@@ -35,7 +35,7 @@ export default function SearchBar() {
               setInput(e.target.value);
             }}
             style={{ width: '50em' }}
-            renderInput={(params) => <TextField {...params} label="Search for a County Name" variant="outlined" />}
+            renderInput={(params) => <TextField {...params} label={input ? input : 'Search for a County Name'} variant="outlined" />}
           />
         </form>
       </div>
