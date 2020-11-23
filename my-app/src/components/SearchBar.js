@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
 export default function SearchBar() {
   const [input, setInput] = useState("");
+  const [counties, setCounties] = useState([]);
+  const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/locations";
+  
+  useEffect(() => {
+    fetch(requestUri).then((response) => response.json())
+    .then((responseData) => {
+      setCounties(responseData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
 
   return (
     <div className="page-header">
@@ -31,11 +43,3 @@ export default function SearchBar() {
     </div>
   );
 }
-
-const counties = [
-  { title: 'Orange'},
-  { title: 'Clark'},
-  { title: 'Snohomish'},
-  { title: 'King'},
-  { title: 'Washington'},
-];
