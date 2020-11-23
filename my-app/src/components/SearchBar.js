@@ -23,11 +23,11 @@ export default function SearchBar() {
               setInput(e.target.value);
             }}
             style={{ width: '50em' }}
-            renderInput={(params) => <TextField {...params} label="Search for a County Name" variant="outlined" />}
+            renderInput={(params) => <TextField {...params} label="Search for a County in the United States" variant="outlined" />}
           />
         </form>
       </div>
-      <a href={'/search/' + input} className="search-button">Search!</a>
+      <a href={'/search/' + input} className="search-button">Search</a>
     </div>
   );
 }
