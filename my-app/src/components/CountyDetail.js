@@ -72,7 +72,7 @@ export default function CountyDetail(props) {
               <div className="favorite">
                 <AlertDialog 
                   info={county + "/" + state + "/" + risk + "/" + location["cnt"] + "/" + location.date.split(" ")[0]} 
-                  label="Customize Dashboard"
+                  label="Add to Dashboard"
                   remove="true"
                   add="true"
                   description="Confirm whether you would like to add or remove this location from your dashboard."

@@ -26,6 +26,7 @@
 }
 
 .baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+  color: lightgray;
   text-decoration: underline;
 }
 
@@ -125,6 +126,10 @@ h2 {
   padding-left: 2em;
   font-size: 1.5em;
   color: inherit;
+}
+
+.back:hover {
+  color: lightgray;
 }
 
 .favorite {
@@ -351,7 +356,8 @@ input {
 */
 
 .save-button {
-  background-color: goldenrod;
+  background-color: white;
+  font-weight: bold;
   font-size: 1em;
   width: auto;
   height: 3em;
@@ -362,13 +368,19 @@ input {
 
 .save-button:hover {
   cursor: pointer;
+  background-color: lightgray;
 }
 
 .modal-button {
+  cursor: pointer;
   background-color: white;
   font-size: 1em;
   width: auto;
   font-weight: bold;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+.modal-button:hover {
+  background-color: lightgray;
 }
