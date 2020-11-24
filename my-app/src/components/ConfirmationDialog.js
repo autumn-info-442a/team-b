@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 /*
 Component that will act as a confirmation dialog asking users if they want to add card to their favorites
 */
-export default function AlertDialog() {
+export default function AlertDialog(props) {
     const [open, setOpen] = React.useState(false);
   
     const handleClickOpen = () => {
@@ -20,12 +20,44 @@ export default function AlertDialog() {
     const handleClose = () => {
       setOpen(false);
     };
+
+    function saveLocation() {
+      let saved = JSON.parse(localStorage.getItem("counties"));
+      if (saved) {
+        if (!saved.includes(props.info)) {
+          saved.push(props.info);
+        }
+      } else {
+        saved = [props.info];
+      }
+      localStorage.setItem("counties", JSON.stringify(saved));
+      alert("Location Saved!");
+      handleClose();
+    }
+
+    function unSaveLocation() {
+      let saved = JSON.parse(localStorage.getItem("counties"));
+      if (saved) {
+         let index = saved.indexOf(props.info);
+         if (index > -1) {
+           saved.splice(index, 1);
+           alert("Location Removed!");
+           localStorage.setItem("counties", JSON.stringify(saved));
+         } else {
+           alert("Error: You did not have this location saved!");
+         }
+      } else {
+        alert("You currently do not have any Saved Locations!");
+      }
+      handleClose();
+      window.location.reload();
+    }
   
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          Favorite
-        </Button>
+        <button className={props.classes} onClick={handleClickOpen}>
+          {props.label}
+        </button>
         <Dialog
           open={open}
           onClose={handleClose}
@@ -35,16 +67,13 @@ export default function AlertDialog() {
           <DialogTitle id="alert-dialog-title">{"Favorite location"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Are you sure you want to add this location to your homepage?
+              {props.description}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              No
-            </Button>
-            <Button onClick={handleClose} color="primary" autoFocus>
-              Yes
-            </Button>
+            {props.remove ? <Button onClick={unSaveLocation} color="primary">Remove</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
+            {props.add ? <Button onClick={saveLocation} color="primary" autoFocus>Add</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
+
           </DialogActions>
         </Dialog>
       </div>

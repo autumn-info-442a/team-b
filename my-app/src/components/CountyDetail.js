@@ -58,14 +58,6 @@ export default function CountyDetail(props) {
       );
     }
 
-    function saveLocation() {
-      /*
-      let saved = JSON.parse(localStorage.getItem("counties"));
-      saved.push(county + "," + state);
-      localStorage.setItem("counties", saved);
-      */
-    }
-
     return (
       <main className="more-info">
         <div className="county-page">
@@ -78,8 +70,14 @@ export default function CountyDetail(props) {
                 <h3><b>Risk Level: {risk}</b></h3>
               </div>
               <div className="favorite">
-                {/* <button onClick={saveLocation}>Like</button> */}
-                <AlertDialog onClick={saveLocation}></AlertDialog>
+                <AlertDialog 
+                  info={county + "/" + state + "/" + risk + "/" + location["cnt"] + "/" + location.date.split(" ")[0]} 
+                  label="Add to Dashboard"
+                  remove="true"
+                  add="true"
+                  description="Confirm whether you would like to add or remove this location from your dashboard."
+                  classes="save-button"
+                />
               </div>
           </div>
           <div className="county-body">

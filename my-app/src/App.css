@@ -26,6 +26,7 @@
 }
 
 .baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+  color: white;
   text-decoration: underline;
 }
 
@@ -117,18 +118,22 @@ h2 {
 }
 
 .county-NA {
-  background-color: #c6c1c7;
+  background-color: darkgrey;
   color: black;
 }
 
 .back {
-  padding-left: 1em;
+  padding-left: 2em;
   font-size: 1.5em;
   color: inherit;
 }
 
+.back:hover {
+  color: white;
+}
+
 .favorite {
-  padding-right: 1em;
+  padding-right: 2em;
 }
 
 .county-body {
@@ -252,11 +257,15 @@ h2 {
 .card {
   background-color: white;
   width: 300px;
-  height: 250px;
+  height: 300px;
   border: 1px solid grey;
   margin: 1em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+}
+
+.test {
+  padding-left: 280px;
 }
 
 .card-link {
@@ -268,8 +277,14 @@ h2 {
   box-shadow: none;
 }
 
+.card-option {
+  display: flex;
+  justify-content: flex-end;
+  height: 10%;
+}
+
 .card-body {
-  height: 70%;
+  height: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -336,4 +351,38 @@ input {
 
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+/*
+* Buttons
+*/
+
+.save-button {
+  background-color: white;
+  font-weight: bold;
+  font-size: 1em;
+  width: auto;
+  height: 3em;
+  border: 1px solid black;
+  border-radius: 10px;
+  opacity: 100%;
+}
+
+.save-button:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.modal-button {
+  cursor: pointer;
+  background-color: white;
+  font-size: 1em;
+  width: auto;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.modal-button:hover {
+  background-color: lightgray;
 }

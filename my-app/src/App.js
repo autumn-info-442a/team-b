@@ -5,6 +5,7 @@ import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
 import { Toolbar } from '@material-ui/core';
+import SavedCardList from './components/SavedCardList';
 
 function App() {
   return (
@@ -30,28 +31,28 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
-  
-  /*
-  localStorage.clear();
-  if (!localStorage.getItem("counties")) {
-    let saved = [];
-    localStorage.setItem("counties", JSON.stringify(saved));
-  }
-  console.log(localStorage.getItem("counties"));
-  let savedLocations = JSON.parse(localStorage.getItem("counties"));
-  */
+  //localStorage.clear();
+  const savedLocations = JSON.parse(localStorage.getItem("counties"));
+  console.log(savedLocations);
 
-  return (
-    <main className="home-page">
-      <SearchBar/>
-      <div>
+  if (savedLocations && savedLocations.length > 0) {
+    return (
+      <main className="home-page">
+        <SearchBar/>
         <h2>Saved Locations:</h2>
-      </div>
-      <div>
-
-      </div>
-    </main>
-  );
+        <SavedCardList counties={savedLocations}/>
+      </main>
+    );
+  } else {
+    return (
+      <main className="home-page">
+        <SearchBar/>
+        <div className="empty-list">
+            <h2>No Saved Locations</h2>
+        </div>
+      </main>
+    );
+  }
 }
 
 
