@@ -100,28 +100,31 @@ h2 {
 }
 
 .county-High {
-  background-color: #DC3220;
-  opacity: 0.8;
+  background-color: #8a0007;
+  color: white;
 }
 
 .county-Medium {
   background-color: #E66100;
-  opacity: 0.8;
+  color: black;
+  opacity: 0.9;
 }
 
 .county-Low {
   background-color: #FFC20A;
+  color: black;
   opacity: 0.8;
 }
 
 .county-NA {
-  background-color: black;
+  background-color: #c6c1c7;
+  color: black;
 }
 
 .back {
   padding-left: 1em;
   font-size: 1.5em;
-  color: white;
+  color: inherit;
 }
 
 .favorite {
@@ -266,12 +269,13 @@ h2 {
 }
 
 .card-body {
-  color: white;
   height: 70%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .card-footer {
