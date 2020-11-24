@@ -18,19 +18,38 @@ export default function AlertDialog(props) {
     };
   
     const handleClose = () => {
-      saveLocation();
       setOpen(false);
     };
 
     function saveLocation() {
       let saved = JSON.parse(localStorage.getItem("counties"));
       if (saved) {
-        saved.push(props.info);
+        if (!saved.includes(props.info)) {
+          saved.push(props.info);
+        }
       } else {
         saved = [props.info];
       }
       localStorage.setItem("counties", JSON.stringify(saved));
       alert("Location Saved!");
+      handleClose();
+    }
+
+    function unSaveLocation() {
+      let saved = JSON.parse(localStorage.getItem("counties"));
+      if (saved) {
+         let index = saved.indexOf(props.info);
+         if (index > -1) {
+           saved.splice(index, 1);
+           alert("Location Removed!");
+           localStorage.setItem("counties", JSON.stringify(saved));
+         } else {
+           alert("Error: You did not have this location saved!");
+         }
+      } else {
+        alert("You currently do not have any Saved Locations!")
+      }
+      handleClose();
     }
   
     return (
@@ -47,15 +66,15 @@ export default function AlertDialog(props) {
           <DialogTitle id="alert-dialog-title">{"Favorite location"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Are you sure you want to add this location to your homepage?
+              Confirm whether you would like to add or remove this location from your dashboard.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              No
+            <Button onClick={unSaveLocation} color="primary">
+              Remove
             </Button>
-            <Button onClick={handleClose} color="primary" autoFocus>
-              Yes
+            <Button onClick={saveLocation} color="primary" autoFocus>
+              Add
             </Button>
           </DialogActions>
         </Dialog>

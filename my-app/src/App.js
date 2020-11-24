@@ -32,24 +32,23 @@ function App() {
 */
 function HomePage() {
   //localStorage.clear();
-  const savedLocations = localStorage.getItem("counties");
+  const savedLocations = JSON.parse(localStorage.getItem("counties"));
   console.log(savedLocations);
 
-  if (savedLocations) {
-    const storedNames = JSON.parse(localStorage.getItem("counties"));
-    console.log(storedNames);
+  if (savedLocations && savedLocations.length > 0) {
     return (
       <main className="home-page">
         <SearchBar/>
-        <SavedCardList counties={storedNames}/>
+        <h2>Saved Locations:</h2>
+        <SavedCardList counties={savedLocations}/>
       </main>
     );
   } else {
     return (
       <main className="home-page">
         <SearchBar/>
-        <div>
-          <SavedCardList/>
+        <div className="empty-list">
+            <h2>No Saved Locations</h2>
         </div>
       </main>
     );

@@ -14,17 +14,10 @@ export default function SavedCardList(props) {
         });
         return (
             <div className="list">
-                <h2>Saved Locations:</h2>
                 <div className="card-container">
                     {counties}
                 </div>
             </div>
         );
-    } else {
-        return (
-        <div className="empty-list">
-            <h2>No Saved Locations</h2>
-        </div>
-        );
-    }
+    } 
 }
