@@ -122,13 +122,13 @@ h2 {
 }
 
 .back {
-  padding-left: 1em;
+  padding-left: 2em;
   font-size: 1.5em;
   color: inherit;
 }
 
 .favorite {
-  padding-right: 1em;
+  padding-right: 2em;
 }
 
 .county-body {
@@ -259,6 +259,11 @@ h2 {
   border-radius: 5px;
 }
 
+.test {
+  padding-left: 280px;
+  font-size: larger;
+}
+
 .card-link {
   text-decoration: none;
   color: black;
@@ -336,4 +341,22 @@ input {
 
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+/*
+* Buttons
+*/
+
+.save-button {
+  background-color: goldenrod;
+  font-size: 1em;
+  width: auto;
+  height: 3em;
+  border: 1px solid black;
+  border-radius: 10px;
+  opacity: 100%;
+}
+
+.save-button:hover {
+  cursor: pointer;
 }

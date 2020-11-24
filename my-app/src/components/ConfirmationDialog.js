@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 /*
 Component that will act as a confirmation dialog asking users if they want to add card to their favorites
 */
-export default function AlertDialog() {
+export default function AlertDialog(props) {
     const [open, setOpen] = React.useState(false);
   
     const handleClickOpen = () => {
@@ -18,14 +18,26 @@ export default function AlertDialog() {
     };
   
     const handleClose = () => {
+      saveLocation();
       setOpen(false);
     };
+
+    function saveLocation() {
+      let saved = JSON.parse(localStorage.getItem("counties"));
+      if (saved) {
+        saved.push(props.info);
+      } else {
+        saved = [props.info];
+      }
+      localStorage.setItem("counties", JSON.stringify(saved));
+      alert("Location Saved!");
+    }
   
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          Favorite
-        </Button>
+        <button className="save-button" onClick={handleClickOpen}>
+          Add to Dashboard
+        </button>
         <Dialog
           open={open}
           onClose={handleClose}
