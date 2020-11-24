@@ -47,15 +47,16 @@ export default function AlertDialog(props) {
            alert("Error: You did not have this location saved!");
          }
       } else {
-        alert("You currently do not have any Saved Locations!")
+        alert("You currently do not have any Saved Locations!");
       }
       handleClose();
+      window.location.reload();
     }
   
     return (
       <div>
-        <button className="save-button" onClick={handleClickOpen}>
-          Add to Dashboard
+        <button className={props.classes} onClick={handleClickOpen}>
+          {props.label}
         </button>
         <Dialog
           open={open}
@@ -66,16 +67,13 @@ export default function AlertDialog(props) {
           <DialogTitle id="alert-dialog-title">{"Favorite location"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Confirm whether you would like to add or remove this location from your dashboard.
+              {props.description}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={unSaveLocation} color="primary">
-              Remove
-            </Button>
-            <Button onClick={saveLocation} color="primary" autoFocus>
-              Add
-            </Button>
+            {props.remove ? <Button onClick={unSaveLocation} color="primary">Remove</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
+            {props.add ? <Button onClick={saveLocation} color="primary" autoFocus>Add</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
+
           </DialogActions>
         </Dialog>
       </div>

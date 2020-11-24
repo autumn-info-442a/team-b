@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AlertDialog from './ConfirmationDialog';
 
 export default function Card(props) {
     const [risk, setRisk] = useState("NA");
@@ -17,6 +18,15 @@ export default function Card(props) {
 
     return (
         <div className="card">
+            <div className={"card-option county-" + risk}>
+                <AlertDialog 
+                    info={county.name + "/" + county.state + "/" + risk + "/" + county["cnt"] + "/" + date} 
+                    label="+"
+                    add="true"
+                    description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}
+                    classes="modal-button"
+                />
+            </div>
             <a className="card-link" href={"/county/" + county.name + "/" + county.state}>
                 <div className={"card-body county-" + risk}>
                     <div>{"Total Cases: " + county["cnt"]}</div>
