@@ -60,33 +60,30 @@ h2 {
   align-items: center;
   flex-direction: column;
   width: 800px;
-  margin-top: 3em;
   border: 0.5px solid black;
-}
-
-.us-body {
-  background-color: #F9F9F9;
-  flex-direction: row;
-  width: 800px;
-  height: 100px;
-  font-size: 0.8em;
 }
 
 .us-stats {
   display: flex;
+  /*
   flex-direction: row;
   width: 50%;
   max-width: 50%;
   margin-left: 2em;
   font-size: 1.1em;
+  */
 }
+
+* { box-sizing: border-box; } /* recommended for item sizing */
 
 .us-individual {
   background-color:#DAE3F3;
-  display: flex;
-  align-items: center;
-  width: 200px;
-  height: 80px;
+  text-align: center;
+  flex-grow: 1; /* get 1 share of extra space */
+  flex-shrink: 0; /* do not shrink if items overflow container */
+  flex-basis: 33%; /* take up 33% of parent initially */
+  font-weight: bold;
+  margin: 10px;
 }
 
 /*

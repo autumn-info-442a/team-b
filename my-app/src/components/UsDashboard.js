@@ -10,14 +10,10 @@ export default function UsDashboard() {
             <div>
                 <p>United States COVID-19 Cases and Deaths</p>
             </div>
-            <div className="us-body">
-                <div className="us-stats">
-                    <div className="us-individual">
-                        <p>TOTAL CASES: </p>
-                        <p>NEW CASES (1 Week):</p>
-                        <p>TOTAL DEATH: </p>
-                    </div>
-                </div>
+            <div className="us-stats">
+                <div className="us-individual"><p>TOTAL CASES: </p></div>
+                <div className="us-individual"><p>NEW CASES (1 Week):</p></div>
+                <div className="us-individual"><p>TOTAL DEATH: </p></div>
             </div>
         </div>
       );
