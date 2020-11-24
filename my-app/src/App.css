@@ -26,7 +26,7 @@
 }
 
 .baseCheck:hover, .baseCheck:focus, .baseCheck:active {
-  color: lightgray;
+  color: white;
   text-decoration: underline;
 }
 
@@ -118,7 +118,7 @@ h2 {
 }
 
 .county-NA {
-  background-color: #c6c1c7;
+  background-color: darkgrey;
   color: black;
 }
 
@@ -129,7 +129,7 @@ h2 {
 }
 
 .back:hover {
-  color: lightgray;
+  color: white;
 }
 
 .favorite {
@@ -278,6 +278,8 @@ h2 {
 }
 
 .card-option {
+  display: flex;
+  justify-content: flex-end;
   height: 10%;
 }
 

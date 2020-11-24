@@ -33,7 +33,7 @@ export default function Card(props) {
                     <div>{"Risk Level: " + risk}</div>
                 </div>
                 <div className="card-footer">
-                    <div className="card-name">{county.name + ", " + county.state}</div>
+                    <div className="card-name">{county.name + " County, " + county.state}</div>
                     <div className="card-time">{"Last Updated: " + date}</div>
                 </div>
             </a>

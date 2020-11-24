@@ -28,7 +28,7 @@ export default function SavedCard(props) {
                     <div>{"Risk Level: " + risk}</div>
                 </div>
                 <div className="card-footer">
-                    <div className="card-name">{name + ", " + state}</div>
+                    <div className="card-name">{name + " County, " + state}</div>
                     <div className="card-time">{"Last Updated: " + date}</div>
                 </div>
             </a>
