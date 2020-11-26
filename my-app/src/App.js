@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
 import { Toolbar } from '@material-ui/core';
 import SavedCardList from './components/SavedCardList';
+import { Ring } from 'react-awesome-spinners';
 
 function App() {
   return (
@@ -32,15 +33,52 @@ function App() {
 */
 function HomePage() {
   //localStorage.clear();
+  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
+
+  if (savedLocations) {
+    savedLocations.map((id) => {
+      baseUri += "ids[]=" + id;
+    });
+  }
+  console.log(JSON.stringify(localStorage.getItem("counties")));
   console.log(savedLocations);
+  console.log(baseUri);
+
+  const [counties, setCounties] = useState([]);
+  //const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
+
+  useEffect(() => {
+    /*
+    fetch(baseUri, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      setCounties(responseData);
+    })
+    .then(() => {
+      setLoaded(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+    */
+  }, []);
 
   if (savedLocations && savedLocations.length > 0) {
     return (
       <main className="home-page">
         <SearchBar/>
         <h2>Saved Locations:</h2>
-        <SavedCardList counties={savedLocations}/>
+        {loaded ? <SavedCardList counties={savedLocations}/> : <Ring/>}
       </main>
     );
   } else {

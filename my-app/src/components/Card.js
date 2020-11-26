@@ -7,12 +7,13 @@ export default function Card(props) {
     let date = county.date.split(" ")[0];
 
     useEffect(() => {
-    if (county["1dd"] >= 500) {
-        setRisk("High");
+        console.log(county["id"])
+        if (county["1dd"] >= 500) {
+            setRisk("High");
         } else if (county["1dd"] > 250 && county["1dd"] < 500) {
-        setRisk("Medium");
+            setRisk("Medium");
         } else if (county["1dd"] < 250 && county["1dd"] > 0) {
-        setRisk("Low");
+            setRisk("Low");
         }     
     }, []);
 
@@ -20,7 +21,7 @@ export default function Card(props) {
         <div className="card">
             <div className={"card-option county-" + risk}>
                 <AlertDialog 
-                    info={county.name + "/" + county.state + "/" + risk + "/" + county["cnt"] + "/" + date} 
+                    info={county["id"]} 
                     label="+"
                     add="true"
                     description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}

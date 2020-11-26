@@ -9,14 +9,14 @@ export default function SavedCardList(props) {
     if (props.counties) {
         let counties = props.counties.map((county) => {
             return (
-                <SavedCard key={county} county={county}/>
+                <li>{county}</li>
             );
         });
         return (
             <div className="list">
-                <div className="card-container">
+                <ul>
                     {counties}
-                </div>
+                </ul>
             </div>
         );
     } 
