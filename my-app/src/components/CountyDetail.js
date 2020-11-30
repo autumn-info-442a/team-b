@@ -6,9 +6,9 @@ import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
 
 /*
-  Component that represents a County Page.
+    Component that represents a County Page, shows recent updates in cases and County Covid-related info.
 */
-export default function CountyDetail(props) {
+export default function CountyDetail() {
 
     let { county, state } = useParams();
     county = county.charAt(0).toUpperCase() + county.slice(1);

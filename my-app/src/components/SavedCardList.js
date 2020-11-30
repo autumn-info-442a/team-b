@@ -2,7 +2,9 @@ import React from 'react';
 import Card from './Card';
 
 /*
-Component that will act a a container to hold each CountyCard Component.
+    Component that will act a a container to hold each Card Component (For Saved Location Cards).
+    * Props
+        * Counties: Array of county objects that hold County information
 */
 export default function SavedCardList(props) {
     if (props.counties) {

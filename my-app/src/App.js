@@ -8,6 +8,9 @@ import SavedCardList from './components/SavedCardList';
 import { Toolbar } from '@material-ui/core';
 import { Ring } from 'react-awesome-spinners';
 
+/*
+  Highest Level Component that oversees the React Routing Setup
+*/
 function App() {
   return (
     <Router>
@@ -32,7 +35,6 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
-  //localStorage.clear();
   let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
 
@@ -43,13 +45,8 @@ function HomePage() {
   }
 
   baseUri = baseUri.slice(0, -1);
-
-  console.log(baseUri);
-  console.log(savedLocations);
-
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  //const [loaded, setLoaded] = useState(true);
 
   useEffect(() => {
     fetch(baseUri, {
@@ -74,6 +71,8 @@ function HomePage() {
     });
   }, []);
 
+  // If there are locations saved, will load the savedCounties on the Home Page Dashboard
+  // If not, will inform the user that there are no saved locations.
   if (savedLocations && savedLocations.length > 0) {
     return (
       <main className="home-page">
@@ -117,7 +116,6 @@ function SearchPage() {
     })
     .then((response) => response.json())
     .then((responseData) => {
-      console.log(responseData);
       setCounties(responseData);
     })
     .then(() => {
