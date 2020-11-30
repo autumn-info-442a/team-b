@@ -5,7 +5,6 @@ import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
 import { BottomNavigation } from '@material-ui/core';
-import { ReactComponent as RiskScale } from './RiskScale.png';
 
 /*
     Component that represents a County Page, shows recent updates in cases and County Covid-related info.
@@ -99,7 +98,7 @@ export default function CountyDetail() {
           </div>
         </div>
         <BottomNavigation>
-          <img src={RiskScale} alt="Risk color scale"/>
+          <img src="../RiskScale.png" alt="Risk color scale"/>
         </BottomNavigation>
       </main>
     );
