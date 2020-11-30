@@ -8,7 +8,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 /*
-Component that will act as a confirmation dialog asking users if they want to add card to their favorites
+    Component that will act as a confirmation dialog asking users if they want to add card to their favorites
+    * Props:
+        * Info: String that represents the CountyID to save/remove
+        * Label: String that represents the label of the button that activates the display of the confirmation dialog
+        * Add: If present, enables the ability to add the CountyID to favorites
+        * Remove: If present, enables the ability to remove the CountyID from favorites
+        * Description: String that represents the message displayed in the confirmation dialog
+        * Classes: Classes that affect the styling of the button that activates the display of the confirmation dialog
 */
 export default function AlertDialog(props) {
     const [open, setOpen] = React.useState(false);

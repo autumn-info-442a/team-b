@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
+/*
+  Component that represents the search bar. Enables autocomplete based on the County names in the US
+*/
 export default function SearchBar() {
   const [input, setInput] = useState("");
   const [counties, setCounties] = useState([]);

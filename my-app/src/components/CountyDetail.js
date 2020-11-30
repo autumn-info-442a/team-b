@@ -6,9 +6,9 @@ import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
 
 /*
-  Component that represents a County Page.
+    Component that represents a County Page, shows recent updates in cases and County Covid-related info.
 */
-export default function CountyDetail(props) {
+export default function CountyDetail() {
 
     let { county, state } = useParams();
     county = county.charAt(0).toUpperCase() + county.slice(1);
@@ -23,6 +23,7 @@ export default function CountyDetail(props) {
       .then((responseData) => {
         let data = responseData[0];
         setLocation(data);
+        console.log(data["id"]);
         if (data["1dd"] >= 500) {
           setRisk("High");
         } else if (data["1dd"] > 250 && data["1dd"] < 500) {
@@ -71,7 +72,7 @@ export default function CountyDetail(props) {
               </div>
               <div className="favorite">
                 <AlertDialog 
-                  info={county + "/" + state + "/" + risk + "/" + location["cnt"] + "/" + location.date.split(" ")[0]} 
+                  info={location["id"]} 
                   label="Add to Dashboard"
                   remove="true"
                   add="true"

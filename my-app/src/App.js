@@ -4,9 +4,13 @@ import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
-import { Toolbar } from '@material-ui/core';
 import SavedCardList from './components/SavedCardList';
+import { Toolbar } from '@material-ui/core';
+import { Ring } from 'react-awesome-spinners';
 
+/*
+  Highest Level Component that oversees the React Routing Setup
+*/
 function App() {
   return (
     <Router>
@@ -31,16 +35,50 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
-  //localStorage.clear();
+  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
-  console.log(savedLocations);
 
+  if (savedLocations) {
+    savedLocations.map((id) => {
+      return baseUri += "ids[]=" + id + "&";
+    });
+  }
+
+  baseUri = baseUri.slice(0, -1);
+  const [counties, setCounties] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch(baseUri, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+      setCounties(responseData);
+    })
+    .then(() => {
+      setLoaded(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
+
+  // If there are locations saved, will load the savedCounties on the Home Page Dashboard
+  // If not, will inform the user that there are no saved locations.
   if (savedLocations && savedLocations.length > 0) {
     return (
       <main className="home-page">
         <SearchBar/>
         <h2>Saved Locations:</h2>
-        <SavedCardList counties={savedLocations}/>
+        {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
       </main>
     );
   } else {
