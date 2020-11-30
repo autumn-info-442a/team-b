@@ -4,8 +4,8 @@ import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
-import { Toolbar } from '@material-ui/core';
 import SavedCardList from './components/SavedCardList';
+import { Toolbar } from '@material-ui/core';
 import { Ring } from 'react-awesome-spinners';
 
 function App() {
@@ -33,24 +33,25 @@ function App() {
 */
 function HomePage() {
   //localStorage.clear();
-  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/saved?";
+  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
 
   if (savedLocations) {
     savedLocations.map((id) => {
-      baseUri += "ids[]=" + id;
+      return baseUri += "ids[]=" + id + "&";
     });
   }
-  console.log(JSON.stringify(localStorage.getItem("counties")));
-  console.log(savedLocations);
+
+  baseUri = baseUri.slice(0, -1);
+
   console.log(baseUri);
+  console.log(savedLocations);
 
   const [counties, setCounties] = useState([]);
-  //const [loaded, setLoaded] = useState(false);
-  const [loaded, setLoaded] = useState(true);
+  const [loaded, setLoaded] = useState(false);
+  //const [loaded, setLoaded] = useState(true);
 
   useEffect(() => {
-    /*
     fetch(baseUri, {
       method: 'GET',
       mode: 'cors',
@@ -62,6 +63,7 @@ function HomePage() {
     })
     .then((response) => response.json())
     .then((responseData) => {
+      console.log(responseData);
       setCounties(responseData);
     })
     .then(() => {
@@ -70,7 +72,6 @@ function HomePage() {
     .catch((err) => {
       console.log(err);
     });
-    */
   }, []);
 
   if (savedLocations && savedLocations.length > 0) {
@@ -78,7 +79,7 @@ function HomePage() {
       <main className="home-page">
         <SearchBar/>
         <h2>Saved Locations:</h2>
-        {loaded ? <SavedCardList counties={savedLocations}/> : <Ring/>}
+        {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
       </main>
     );
   } else {
@@ -116,6 +117,7 @@ function SearchPage() {
     })
     .then((response) => response.json())
     .then((responseData) => {
+      console.log(responseData);
       setCounties(responseData);
     })
     .then(() => {

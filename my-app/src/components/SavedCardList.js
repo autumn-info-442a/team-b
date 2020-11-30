@@ -1,6 +1,5 @@
 import React from 'react';
-import { Ring } from 'react-awesome-spinners';
-import SavedCard from './SavedCard';
+import Card from './Card';
 
 /*
 Component that will act a a container to hold each CountyCard Component.
@@ -9,14 +8,14 @@ export default function SavedCardList(props) {
     if (props.counties) {
         let counties = props.counties.map((county) => {
             return (
-                <li>{county}</li>
+                <Card key={county.name + "," + county.state} county={county} remove/>
             );
         });
         return (
             <div className="list">
-                <ul>
+                <div className="card-container">
                     {counties}
-                </ul>
+                </div>
             </div>
         );
     } 

@@ -5,6 +5,7 @@ export default function Card(props) {
     const [risk, setRisk] = useState("NA");
     let county = props.county;
     let date = county.date.split(" ")[0];
+    console.log(props.remove);
 
     useEffect(() => {
         console.log(county["id"])
@@ -20,13 +21,20 @@ export default function Card(props) {
     return (
         <div className="card">
             <div className={"card-option county-" + risk}>
+                {props.remove ? <AlertDialog 
+                    info={county["id"]} 
+                    label="X" 
+                    remove="true" 
+                    description={"Are you sure you want to remove '" + county.name + " County, " + county.state + " from your homepage?"}
+                    classes="modal-button"
+                /> : 
                 <AlertDialog 
                     info={county["id"]} 
                     label="+"
                     add="true"
                     description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}
                     classes="modal-button"
-                />
+                />}
             </div>
             <a className="card-link" href={"/county/" + county.name + "/" + county.state}>
                 <div className={"card-body county-" + risk}>
