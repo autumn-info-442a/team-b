@@ -5,16 +5,20 @@ import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
 import UsDashboard from './components/UsDashboard';
+import SavedCardList from './components/SavedCardList';
 import { Toolbar } from '@material-ui/core';
+import { Ring } from 'react-awesome-spinners';
 
+/*
+  Highest Level Component that oversees the React Routing Setup
+*/
 function App() {
   return (
     <Router>
       <header>
         <div className="nav-bar">
           <Toolbar className="tool-bar">
-              <h1>BaseCheck</h1>
-              <a className="tool-link" href="/">Home</a>
+              <a className="baseCheck" href="/">BaseCheck</a>
           </Toolbar>
         </div>
       </header>
@@ -32,24 +36,64 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
-  if (!localStorage.getItem("counties")) {
-    let saved = [];
-    localStorage.setItem("counties", JSON.stringify(saved));
-  }
-  console.log(localStorage.getItem("counties"));
-  let savedLocations = JSON.parse(localStorage.getItem("counties"));
+  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/saved?";
+  const savedLocations = JSON.parse(localStorage.getItem("counties"));
 
-  return (
-    <main className="home-page">
-      <SearchBar/>
-      <div>
+  if (savedLocations) {
+    savedLocations.map((id) => {
+      return baseUri += "ids[]=" + id + "&";
+    });
+  }
+
+  baseUri = baseUri.slice(0, -1);
+  const [counties, setCounties] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch(baseUri, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+      setCounties(responseData);
+    })
+    .then(() => {
+      setLoaded(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
+
+  // If there are locations saved, will load the savedCounties on the Home Page Dashboard
+  // If not, will inform the user that there are no saved locations.
+  if (savedLocations && savedLocations.length > 0) {
+    return (
+      <main className="home-page">
+        <SearchBar/>
+        <UsDashboard/>
         <h2>Saved Locations:</h2>
-      </div>
-      <div>
-      <UsDashboard/>
-      </div>
-    </main>
-  );
+        {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
+      </main>
+    );
+  } else {
+    return (
+      <main className="home-page">
+        <SearchBar/>
+        <UsDashboard/>
+        <div className="empty-list">
+            <h2>No Saved Locations</h2>
+        </div>
+      </main>
+    );
+  }
 }
 
 
@@ -59,12 +103,20 @@ function HomePage() {
 function SearchPage() {
 
   let { county } = useParams();
-  const baseUri = "https://disease.sh/v3/covid-19/jhucsse/counties/";
+  const baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(baseUri + county)
+    fetch(baseUri, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Origin': 'http://localhost:3000'
+      }
+    })
     .then((response) => response.json())
     .then((responseData) => {
       setCounties(responseData);

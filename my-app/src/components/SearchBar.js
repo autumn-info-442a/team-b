@@ -1,17 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 
+/*
+  Component that represents the search bar. Enables autocomplete based on the County names in the US
+*/
 export default function SearchBar() {
-
-    const [input, setInput] = useState("");
+  const [input, setInput] = useState("");
+  const [counties, setCounties] = useState([]);
+  const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/locations";
   
-    return (
-      <div className="page-header">
-        <h2>COVID-19 Cases Today Across the Country</h2>
-        <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
-        <div>
-          <input type="text" value={input} placeholder="search for a county" onChange={e => setInput(e.target.value)} className="search"></input>
-        </div>
-        <a href={'/search/' + input} className="search-button">Search!</a>
+  useEffect(() => {
+    fetch(requestUri).then((response) => response.json())
+    .then((responseData) => {
+      setCounties(responseData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
+
+  return (
+    <div className="page-header">
+      <h2>COVID-19 Cases Today Across the Country</h2>
+      <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
+      <div className="search-form">
+        <Autocomplete
+          id="combo-box-demo"
+          options={counties}
+          freeSolo={true}
+          getOptionLabel={(option) => option.title}
+          onChange = {(e, option) => {
+            if (option != null) {
+              setInput(option.title); 
+            }
+          }}
+          onInputChange={e => {
+            setInput(e.target.value);
+            console.log(input);
+          }}
+          style={{ width: '50em' }}
+          renderInput={(params) => <TextField {...params} label='Search for a County Name' variant="outlined" />}
+        />
       </div>
-    );
+      <a href={'/search/' + input} className="search-button">Search!</a>
+    </div>
+  );
 }

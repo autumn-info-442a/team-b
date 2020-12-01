@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
+
 /*
   Home Page related CSS
 */
-.html {
-  background-color: #E5E5E5;
-}
 
 .home-page {
   display: flex;
@@ -11,10 +10,31 @@
   align-items: center;
   flex-direction: column;
   margin: 2em;
+  font-family: 'Encode Sans', sans-serif;
+}
+
+.baseCheck {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+  color: white;
+  text-decoration: underline;
 }
 
 .page-header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list {
@@ -35,19 +55,16 @@
 }
 
 .search-button {
+  padding-top: 1em;
   width: auto;
+  font-size: 1.5em;
   color: black;
-}
-
-.card-container {
-  width: 100%;
-  min-height: 300px;
-  height: auto;
-  background-color: grey;
 }
 
 h2 {
   font-size: xx-large;
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: bold;
 }
 
 /*
@@ -106,7 +123,9 @@ h2 {
   flex-direction: column;
   width: 80%;
   margin-top: 3em;
-  border: 10px solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 3em;
 }
 
 .county-header {
@@ -114,21 +133,46 @@ h2 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #0E1B5B;
   margin-left: 2em;
   margin-right: 2em;
   text-align: center;
   color: white;
 }
 
+.county-High {
+  background-color: #8a0007;
+  color: white;
+}
+
+.county-Medium {
+  background-color: #E66100;
+  color: black;
+  opacity: 0.9;
+}
+
+.county-Low {
+  background-color: #FFC20A;
+  color: black;
+  opacity: 0.8;
+}
+
+.county-NA {
+  background-color: darkgrey;
+  color: black;
+}
+
 .back {
-  padding-left: 1em;
+  padding-left: 2em;
   font-size: 1.5em;
+  color: inherit;
+}
+
+.back:hover {
   color: white;
 }
 
 .favorite {
-  padding-right: 1em;
+  padding-right: 2em;
 }
 
 .county-body {
@@ -225,7 +269,6 @@ h2 {
   font-size: 1.3rem;
 }
 
-
 /*
   Loading
 */
@@ -233,4 +276,152 @@ h2 {
   display: flex;
   justify-content: center;
   margin-top: 10em;
+}
+
+
+/*
+  Card Container
+*/
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+}
+
+/*
+  Card
+*/
+.card {
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  border: 1px solid grey;
+  margin: 1em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.test {
+  padding-left: 280px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card:focus, .card:active, .card:hover {
+  box-shadow: none;
+}
+
+.card-option {
+  display: flex;
+  justify-content: flex-end;
+  height: 10%;
+}
+
+.card-body {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.card-footer {
+  height: 30%;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-name {
+  font-size: 20px;
+}
+
+.card-time {
+  font-size: 12px;
+}
+
+
+/*
+* Autocomplete Styling
+*/
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #008f68;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+
+/*
+* Buttons
+*/
+
+.save-button {
+  background-color: white;
+  font-weight: bold;
+  font-size: 1em;
+  width: auto;
+  height: 3em;
+  border: 1px solid black;
+  border-radius: 10px;
+  opacity: 100%;
+}
+
+.save-button:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.modal-button {
+  cursor: pointer;
+  background-color: white;
+  font-size: 1em;
+  width: auto;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.modal-button:hover {
+  background-color: lightgray;
 }
