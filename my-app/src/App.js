@@ -81,6 +81,7 @@ function SearchPage() {
     return (
       <main className="home-page">
         <SearchBar/>
+        <UsDashboard/>
         <CountyCardList counties={counties} loaded={loaded} search={county}/>
         <div>
         </div>
