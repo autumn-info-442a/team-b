@@ -4,6 +4,7 @@ import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
 import CountyCardList from './components/CountyCardList';
+import UsDashboard from './components/UsDashboard';
 import SavedCardList from './components/SavedCardList';
 import { Toolbar } from '@material-ui/core';
 import { Ring } from 'react-awesome-spinners';
@@ -77,6 +78,7 @@ function HomePage() {
     return (
       <main className="home-page">
         <SearchBar/>
+        <UsDashboard/>
         <h2>Saved Locations:</h2>
         {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
       </main>
@@ -85,6 +87,7 @@ function HomePage() {
     return (
       <main className="home-page">
         <SearchBar/>
+        <UsDashboard/>
         <div className="empty-list">
             <h2>No Saved Locations</h2>
         </div>
@@ -130,6 +133,7 @@ function SearchPage() {
     return (
       <main className="home-page">
         <SearchBar/>
+        <UsDashboard/>
         <CountyCardList counties={counties} loaded={loaded} search={county}/>
         <div>
         </div>
