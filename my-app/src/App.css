@@ -67,7 +67,46 @@ h2 {
   font-weight: bold;
 }
 
+/*
+  US Dashboard Component related CSS
+*/
 
+.us-page {
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  flex-direction: column;
+  width: 800px;
+  border: 0.5px solid black;
+  padding-left: 10px;
+}
+
+.us-stats {
+  display: flex;
+  justify-content: center;
+}
+
+* { box-sizing: border-box; } /* recommended for item sizing */
+
+.us-individual {
+  background-color:#DAE3F3;
+  text-align: center;
+  flex-grow: 1; /* get 1 share of extra space */
+  flex-shrink: 0; /* do not shrink if items overflow container */
+  flex-basis: 25%; /* take up 33% of parent initially */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.us-cases {
+  color: red;
+  font-weight: bold;
+}
+
+.us-update {
+  text-align: right;
+  padding-right: 10px;
+}
 /*
   County Details Page related CSS
 */
