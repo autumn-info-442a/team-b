@@ -20,7 +20,7 @@
     - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
     - View resides only on the client
     ```jsx
-    class HomePage extends Component() {
+    class SearchPage extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
@@ -70,7 +70,7 @@
     - View resides only on the client
     - Code Snippet:
     ```jsx
-    class CountyCardList extends Component() {
+    class SavedCardList extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
@@ -112,7 +112,7 @@
     - View resides only on the client
     - Code Snippet:
     ```jsx
-    class CountyCard extends Component() {
+    class Card extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
