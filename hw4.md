@@ -1,41 +1,7 @@
 # Architecture
-
-- Models:
-  - Location
-    - This component is a model that stores all the Covid related data associated with a specific location such as Covid Cases in the past day, past week, total deaths, etc found from the NovelCovid API
-    - Model resides only on the client
-    - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county as well as the USDashboard view
-    - Code Snippet:
-    ```jsx
-    class Location extends Component {
-      //TO-DO: Implement actual component
-      constructor(props) {
-        super(props);
-        this.state = {
-          cases = 10323;
-          deaths = 1312;
-        }
-      }
-    }
-    ```
-  - UserStorage
-    - This component is a model that stores all of the users information like saved location, current location, and unique user url.
-    - This model resides only on the client.
-    - The UserStorage model will be used on the CountyCardList view, HomePage County card view and will interact with the saveLocation controller and unsavedLocation controller.
-    - Code Snippet:
-    ```jsx
-    class UserStorage extends Component {
-      //TO-DO: Implement actual component
-      constructor(props) {
-        super(props);
-        this.state = {
-          locations = [];
-        }
-      }
-    }
-- View:
+- Views:
   - HomePage
-    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a SavedCardListView, and USDashboard view
     - View resides only on the client
     ```jsx
     class HomePage extends Component() {
@@ -44,8 +10,24 @@
           return (
             <NavBar></NavBar>
             <SearchBar/>
-            <CountyCardList/>
             <USDashboard/>
+            <SavedCardList/>
+          )
+      }
+    }
+    ```
+  - SearchPage
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
+    - View resides only on the client
+    ```jsx
+    class SearchPage extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <NavBar></NavBar>
+            <SearchBar/>
+            <USDashboard/>
+            <CountyCardList/>
           )
       }
     }
@@ -63,23 +45,6 @@
       }
     }
     ```
-  - NavigationBar
-    - This component is a view that contains links to navigate the user to different parts of the web application
-    - View resides only on the client
-    - Code Snippet:
-    ```jsx
-    class NavigationBar extends Component() {
-      // TO-DO: Implement actual component
-      render() {
-          return (
-            <NavBar>
-               <div><Link>Home</Link></div>
-               <div>BaseCheck</div>
-            </NavBar>
-          )
-      }
-    }
-    ```
   - CountyCardList
     - This component is a view that will contain 0 to many CountyCard views
     - This view also communicates with the UserStorage Model to populate saved locations when needed
@@ -87,6 +52,25 @@
     - Code Snippet:
     ```jsx
     class CountyCardList extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <div>
+              counties.map(() => {
+                list.add(county)
+              })
+            </div>
+          )
+      }
+    }
+    ```
+  - SavedCardList
+    - This component is a view that will show and only appear if there are 1 or more saved locations.
+    - This view also communicates with the UserStorage Model to populate saved locations when needed
+    - View resides only on the client
+    - Code Snippet:
+    ```jsx
+    class SavedCardList extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
@@ -123,12 +107,12 @@
       }
     }
     ```
-  - CountyCard
+  - Card
     - This component is a view that will contain a preview of Covid related information found in the County Model
     - View resides only on the client
     - Code Snippet:
     ```jsx
-    class CountyCard extends Component() {
+    class Card extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
@@ -158,23 +142,6 @@
       }
     }
     ```
-   - ColorScale
-      - This component is a view that contains color scale and accompanying text must meet color contrast guidelines (WCAG 2.1 AA) per RiskLevel controller.
-      - View resides only on the client
-      - Code Snippet:
-      ```jsx
-      class ColorScale extends Component() {
-        // TO-DO: Implement actual component
-        render() {
-            return (
-                <NavigationBar/>
-                <div>
-                // place holder
-                </div>
-            )
-        }
-      }
-      ```
     
 Controllers:
   ```
@@ -187,18 +154,5 @@ Controllers:
     function unSaveLocation(String county ) {
       // TO-DO: replace with actual algorithm
       localStorage.get(counties).remove(county);
-    }
-      
-    function fillDisplay() {
-      // TO-DO: replace with actual algorithm
-      for county in UserStorage.counties {
-        CountyList.add(CountyCard(county));
-      }
-    }
-    
-    function RiskLevel() {
-      // TO-DO: replace with actual algorithm
-      // Increase (or decrease)= New total cases (in the last 7 days) - Original total of cases 
-      // % increase (or decrease) = Increase ÷ Original total of cases × 100
     }
   ```

@@ -67,7 +67,46 @@ h2 {
   font-weight: bold;
 }
 
+/*
+  US Dashboard Component related CSS
+*/
 
+.us-page {
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  flex-direction: column;
+  width: 800px;
+  border: 0.5px solid black;
+  padding-left: 10px;
+}
+
+.us-stats {
+  display: flex;
+  justify-content: center;
+}
+
+* { box-sizing: border-box; } /* recommended for item sizing */
+
+.us-individual {
+  background-color:#DAE3F3;
+  text-align: center;
+  flex-grow: 1; /* get 1 share of extra space */
+  flex-shrink: 0; /* do not shrink if items overflow container */
+  flex-basis: 25%; /* take up 33% of parent initially */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.us-cases {
+  color: red;
+  font-weight: bold;
+}
+
+.us-update {
+  text-align: right;
+  padding-right: 10px;
+}
 /*
   County Details Page related CSS
 */
@@ -87,6 +126,7 @@ h2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   margin-bottom: 3em;
+  padding-bottom: 50px;
 }
 
 .county-header {
@@ -101,7 +141,7 @@ h2 {
 }
 
 .county-High {
-  background-color: #8a0007;
+  background-color: #DC3220;
   color: white;
 }
 
@@ -137,7 +177,7 @@ h2 {
 }
 
 .county-body {
-  background-color: #F9F9F9;
+  background-color: white;
   width: 100%;
   height: auto;
   font-size: x-large;
@@ -220,7 +260,7 @@ h2 {
 .tool-bar {
   display: flex;
   justify-content: space-between;
-  background-color: #0A7FEB;
+  background-color: #E56B6B;
   color: white;
   height: 100%;
 }
