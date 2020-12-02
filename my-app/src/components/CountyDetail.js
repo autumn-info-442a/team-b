@@ -4,6 +4,7 @@ import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
+import { BottomNavigation } from '@material-ui/core';
 
 /*
     Component that represents a County Page, shows recent updates in cases and County Covid-related info.
@@ -95,6 +96,9 @@ export default function CountyDetail() {
               </div>
             </div>
           </div>
+          <BottomNavigation>
+            <img className="RiskScale" src="../../riskscale.png" alt="Risk color scale" width='600' height='75'/>
+          </BottomNavigation>
         </div>
       </main>
     );
