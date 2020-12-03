@@ -154,7 +154,7 @@
     
 Controllers:
   ```
-    // saves a location to the UserStorage Model
+    // saves a location to the localStorage
     function saveLocation(String county) {
       // TO-DO: replace with actual algorithm
       localStorage.get(counties).add(county);
