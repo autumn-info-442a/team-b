@@ -10,7 +10,7 @@ export default function SavedCardList(props) {
     if (props.counties) {
         let counties = props.counties.map((county) => {
             return (
-                <Card key={county.name + "," + county.state} county={county} remove/>
+                <Card key={county.name + "," + county.state} county={county}/>
             );
         });
         return (
