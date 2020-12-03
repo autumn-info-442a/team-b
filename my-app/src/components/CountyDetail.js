@@ -4,7 +4,6 @@ import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
-import { BottomNavigation } from '@material-ui/core';
 
 /*
     Component that represents a County Page, shows recent updates in cases and County Covid-related info.
@@ -40,7 +39,6 @@ export default function CountyDetail() {
             setSaved(true);
           }
         }
-        console.log(isSaved);
       })
       .then(() => {
         setLoaded(true);
@@ -74,7 +72,7 @@ export default function CountyDetail() {
         <div className="county-page">
           <div className={"county-header county-" + risk}>
               <div>
-                <a className="back" href={'/search/' + county}><span class="material-icons detail-button">arrow_back</span></a>
+                <a className="back" href={'/search/' + county}><span className="material-icons detail-button">arrow_back</span></a>
               </div>
               <div>
                 <h2>{county} County, {state}</h2>
@@ -83,7 +81,7 @@ export default function CountyDetail() {
               <div className="favorite">
                 <AlertDialog 
                   info={location["id"]} 
-                  label={isSaved ? <span class="material-icons saved detail-button">favorite</span> : <span class="material-icons unsaved detail-button">favorite</span>}
+                  label={isSaved ? <span className="material-icons saved detail-button">favorite</span> : <span className="material-icons unsaved detail-button">favorite</span>}
                   remove="true"
                   add="true"
                   description="Confirm whether you would like to add or remove this location from your dashboard."
@@ -105,9 +103,9 @@ export default function CountyDetail() {
               </div>
             </div>
           </div>
-          <BottomNavigation>
+          <div>
             <img className="RiskScale" src="../../riskscale.png" alt="Risk color scale" width='600' height='75'/>
-          </BottomNavigation>
+          </div>
         </div>
       </main>
     );
