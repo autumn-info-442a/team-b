@@ -47,7 +47,7 @@
     ```
   - SearchBar
     - This component is a view that contains an autocomplete component from `material-ui`.
-    - View resides only on the client
+    - View resides only on the client but communicates with the CoverCovid API-19 to generate autocomplete results
     ```jsx
     class SearchBar extends Component() {
       // TO-DO: Implement actual component
@@ -60,7 +60,7 @@
     ```
   - CountyCardList
     - This component is a view that will contain 0 to many CountyCard views
-    - This view also communicates with the UserStorage Model to populate saved locations when needed
+    - This view also communicates with the CoverCovid-19 API to populate saved locations when needed
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -79,7 +79,7 @@
     ```
   - SavedCardList
     - This component is a view that will show and only appear if there are 1 or more saved locations.
-    - This view also communicates with the UserStorage Model to populate saved locations when needed
+    - This view also communicates with the CoverCovid-19 API to populate saved locations when needed
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -97,7 +97,7 @@
     }
     ```
   - USDashboard
-    - This component is a view that will contain some Covid related information from the API
+    - This component is a view that will contain some Covid related information from the Disease.sh API
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -121,7 +121,7 @@
     }
     ```
   - Card
-    - This component is a view that will contain a preview of Covid related information from the API
+    - This component is a view that will contain a preview of Covid related information from the CoverCovid-19 API
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -136,7 +136,7 @@
     }
     ```
   - CountyDetail
-    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the API.
+    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the CoverCovid-19 API.
     - View resides only on the client
     - Code Snippet:
     ```jsx
