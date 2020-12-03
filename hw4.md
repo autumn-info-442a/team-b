@@ -1,14 +1,14 @@
 # Architecture
 - Views:
   - HomePage
-    - This component is a view that contains a NavigationBar view, a SearchBar view, a SavedCardListView, and USDashboard view
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a SavedCardList view, and USDashboard view
     - View resides only on the client
     ```jsx
     class HomePage extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-            <NavBar></NavBar>
+            <NavigationBar></NavigationBar>
             <SearchBar/>
             <USDashboard/>
             <SavedCardList/>
@@ -16,15 +16,28 @@
       }
     }
     ```
+  - NavigationBar
+    - This component is a view that is at the top of every page throughout the app
+    - View resides on the client
+    ```jsx
+    class NavigationBar extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <h1><a href="/">BaseCheck</a></h1>
+          )
+      }
+    }
+    ```
   - SearchPage
-    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardList view, and USDashboard view
     - View resides only on the client
     ```jsx
     class SearchPage extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-            <NavBar></NavBar>
+            <NavigationBar></NavigationBar>
             <SearchBar/>
             <USDashboard/>
             <CountyCardList/>
@@ -33,14 +46,14 @@
     }
     ```
   - SearchBar
-    - This component is a view that contains a search input field and autocomplete function.
+    - This component is a view that contains an autocomplete component from `material-ui`.
     - View resides only on the client
     ```jsx
     class SearchBar extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-            <input></input>
+            <Autocomplete></Autocomplete>
           )
       }
     }
@@ -84,7 +97,7 @@
     }
     ```
   - USDashboard
-    - This component is a view that will contain some Covid related information found in the UnitedStates Model
+    - This component is a view that will contain some Covid related information from the API
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -108,7 +121,7 @@
     }
     ```
   - Card
-    - This component is a view that will contain a preview of Covid related information found in the County Model
+    - This component is a view that will contain a preview of Covid related information from the API
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -116,16 +129,14 @@
       // TO-DO: Implement actual component
       render() {
           return (
-              <p>
-                Total Cases: CountyModel.getCases();
-                Total Deaths: CountyMode.getDeaths();
-              </p>
+              <p>Total Cases: </p>
+              <p>Total Deaths: </p>
           )
       }
     }
     ```
   - CountyDetail
-    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
+    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the API.
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -134,10 +145,8 @@
       render() {
           return (
               <NavigationBar/>
-              <p>
-                Total Cases: CountyModel.getCases();
-                Total Deaths: CountyMode.getDeaths();
-              </p>
+              <p>Total Cases: </p>
+              <p> Total Deaths: </p>
           )
       }
     }
