@@ -10,33 +10,42 @@ import AlertDialog from './ConfirmationDialog';
 */
 export default function Card(props) {
     const [risk, setRisk] = useState("NA");
+    const [isSaved, setSaved] = useState(false);
     let county = props.county;
     let date = county.date.split(" ")[0];
 
     useEffect(() => {
-        console.log(county["id"])
+        console.log(county["id"]);
         if (county["1dd"] >= 500) {
             setRisk("High");
         } else if (county["1dd"] > 250 && county["1dd"] < 500) {
             setRisk("Medium");
         } else if (county["1dd"] < 250 && county["1dd"] > 0) {
             setRisk("Low");
-        }     
+        }
+        
+        let saved = JSON.parse(localStorage.getItem("counties"));
+        if (saved) {
+          let index = saved.indexOf(county["id"]);
+          if (index > -1) {
+            setSaved(true);
+          }
+        }
     }, []);
 
     return (
         <div className="card">
             <div className={"card-option county-" + risk}>
-                {props.remove ? <AlertDialog 
-                    info={county["id"]} 
-                    label="X" 
+                {isSaved ? <AlertDialog 
+                    info={county["id"]}
+                    label={<span class="material-icons saved card-button">favorite</span>}
                     remove
                     description={"Are you sure you want to remove '" + county.name + " County, " + county.state + "' from your homepage?"}
                     classes="modal-button"
                 /> : 
                 <AlertDialog 
-                    info={county["id"]} 
-                    label="+"
+                    info={county["id"]}
+                    label={<span class="material-icons unsaved card-button">favorite</span>}
                     add
                     description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}
                     classes="modal-button"
