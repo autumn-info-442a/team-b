@@ -74,7 +74,7 @@ export default function CountyDetail() {
               <div className="favorite">
                 <AlertDialog 
                   info={location["id"]} 
-                  label="Add to Dashboard"
+                  label="Add/Remove Location"
                   remove="true"
                   add="true"
                   description="Confirm whether you would like to add or remove this location from your dashboard."
