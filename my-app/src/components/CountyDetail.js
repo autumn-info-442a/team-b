@@ -16,6 +16,7 @@ export default function CountyDetail() {
     state = state.charAt(0).toUpperCase() + state.slice(1);
     const [location, setLocation] = useState();
     const [risk, setRisk] = useState("NA");
+    const [isSaved, setSaved] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
   
@@ -32,6 +33,15 @@ export default function CountyDetail() {
         } else if (data["1dd"] < 250 && data["1dd"] > 0) {
           setRisk("Low");
         }
+
+        let saved = JSON.parse(localStorage.getItem("counties"));
+        if (saved) {
+          let index = saved.indexOf(data["id"]);
+          if (index > -1) {
+            setSaved(true);
+          }
+        }
+        console.log(isSaved);
       })
       .then(() => {
         setLoaded(true);
@@ -74,7 +84,7 @@ export default function CountyDetail() {
               <div className="favorite">
                 <AlertDialog 
                   info={location["id"]} 
-                  label="Add/Remove Location"
+                  label={isSaved ? <span class="material-icons saved detail-button">favorite</span> : <span class="material-icons unsaved detail-button">favorite</span>}
                   remove="true"
                   add="true"
                   description="Confirm whether you would like to add or remove this location from your dashboard."

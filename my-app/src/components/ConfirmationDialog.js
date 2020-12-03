@@ -38,8 +38,8 @@ export default function AlertDialog(props) {
         saved = [props.info];
       }
       localStorage.setItem("counties", JSON.stringify(saved));
-      alert("Location Saved!");
       handleClose();
+      window.location.reload();
     }
 
     function unSaveLocation() {
@@ -48,13 +48,8 @@ export default function AlertDialog(props) {
          let index = saved.indexOf(props.info);
          if (index > -1) {
            saved.splice(index, 1);
-           alert("Location Removed!");
            localStorage.setItem("counties", JSON.stringify(saved));
-         } else {
-           alert("Error: You did not have this location saved!");
          }
-      } else {
-        alert("You currently do not have any Saved Locations!");
       }
       handleClose();
       window.location.reload();

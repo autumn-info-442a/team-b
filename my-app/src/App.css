@@ -320,11 +320,11 @@ h2 {
 .card-option {
   display: flex;
   justify-content: flex-end;
-  height: 10%;
+  height: 15%;
 }
 
 .card-body {
-  height: 60%;
+  height: 55%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -398,31 +398,40 @@ input {
 */
 
 .save-button {
-  background-color: white;
-  font-weight: bold;
-  font-size: 1em;
   width: auto;
-  height: 3em;
-  border: 1px solid black;
-  border-radius: 10px;
-  opacity: 100%;
+  height: auto;
+  background-color: inherit;
+  border: none;
+}
+
+.detail-button {
+  font-size: 50px;
 }
 
 .save-button:hover {
   cursor: pointer;
-  background-color: lightgray;
+}
+
+.saved {
+  color: #29335C;
+}
+
+.unsaved {
+  color: white;
+}
+
+.card-button {
+  font-size: 33px;
+}
+
+.unsaved:hover {
+  color: #29335C;
 }
 
 .modal-button {
   cursor: pointer;
-  background-color: white;
-  font-size: 1em;
-  width: auto;
-  font-weight: bold;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.modal-button:hover {
-  background-color: lightgray;
+  height: 40px;
+  width: 40px;
+  background-color: inherit;
+  border: none;
 }
