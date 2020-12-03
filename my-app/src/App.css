@@ -164,12 +164,11 @@ h2 {
 
 .back {
   padding-left: 2em;
-  font-size: 1.5em;
-  color: inherit;
+  color: white;
 }
 
 .back:hover {
-  color: white;
+  color: #29335C;
 }
 
 .favorite {

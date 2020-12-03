@@ -74,7 +74,7 @@ export default function CountyDetail() {
         <div className="county-page">
           <div className={"county-header county-" + risk}>
               <div>
-                <a className="back" href={'/search/' + county}>Back</a>
+                <a className="back" href={'/search/' + county}><span class="material-icons detail-button">arrow_back</span></a>
               </div>
               <div>
                 <h2>{county} County, {state}</h2>
