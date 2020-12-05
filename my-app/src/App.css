@@ -96,6 +96,7 @@ h2 {
   flex-basis: 25%; /* take up 33% of parent initially */
   font-weight: bold;
   margin: 10px;
+  letter-spacing: 2px;
 }
 
 .us-cases {
