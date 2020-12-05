@@ -24,24 +24,23 @@ export default function CountyDetail() {
       .then((responseData) => {
         let data = responseData[0];
         setLocation(data);
-        if (!location) {
-          return;
-        }    
-        if (data["1dd"] >= 500) {
-          setRisk("High");
-        } else if (data["1dd"] > 250 && data["1dd"] < 500) {
-          setRisk("Medium");
-        } else if (data["1dd"] < 250 && data["1dd"] > 0) {
-          setRisk("Low");
-        }
-
-        let saved = JSON.parse(localStorage.getItem("counties"));
-        if (saved) {
-          let index = saved.indexOf(data["id"]);
-          if (index > -1) {
-            setSaved(true);
+        if (data) {
+          if (data["1dd"] >= 500) {
+            setRisk("High");
+          } else if (data["1dd"] > 250 && data["1dd"] < 500) {
+            setRisk("Medium");
+          } else if (data["1dd"] < 250 && data["1dd"] > 0) {
+            setRisk("Low");
           }
-        }
+
+          let saved = JSON.parse(localStorage.getItem("counties"));
+          if (saved) {
+            let index = saved.indexOf(data["id"]);
+            if (index > -1) {
+              setSaved(true);
+            }
+          }
+        }    
       })
       .then(() => {
         setLoaded(true);
