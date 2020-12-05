@@ -24,6 +24,9 @@ export default function CountyDetail() {
       .then((responseData) => {
         let data = responseData[0];
         setLocation(data);
+        if (!location) {
+          return;
+        }    
         if (data["1dd"] >= 500) {
           setRisk("High");
         } else if (data["1dd"] > 250 && data["1dd"] < 500) {
@@ -55,7 +58,7 @@ export default function CountyDetail() {
         </div>
       );
     }
-  
+    
     if (!location) {
       return (
         <main className="home-page">
@@ -66,7 +69,7 @@ export default function CountyDetail() {
         </main>
       );
     }
-
+    
     return (
       <main className="more-info">
         <div className="county-page">
