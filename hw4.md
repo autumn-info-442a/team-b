@@ -1,88 +1,66 @@
 # Architecture
-
-- Models:
-  - Location
-    - This component is a model that stores all the Covid related data associated with a specific location such as Covid Cases in the past day, past week, total deaths, etc found from the NovelCovid API
-    - Model resides only on the client
-    - The county model will be used on the CountyDetail view as well as the HomePage view and CountyCard view to display Covid information associated with the county as well as the USDashboard view
-    - Code Snippet:
-    ```jsx
-    class Location extends Component {
-      //TO-DO: Implement actual component
-      constructor(props) {
-        super(props);
-        this.state = {
-          cases = 10323;
-          deaths = 1312;
-        }
-      }
-    }
-    ```
-  - UserStorage
-    - This component is a model that stores all of the users information like saved location, current location, and unique user url.
-    - This model resides only on the client.
-    - The UserStorage model will be used on the CountyCardList view, HomePage County card view and will interact with the saveLocation controller and unsavedLocation controller.
-    - Code Snippet:
-    ```jsx
-    class UserStorage extends Component {
-      //TO-DO: Implement actual component
-      constructor(props) {
-        super(props);
-        this.state = {
-          locations = [];
-        }
-      }
-    }
-- View:
+- Views:
   - HomePage
-    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardListView, and USDashboard view
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a SavedCardList view, and USDashboard view
     - View resides only on the client
     ```jsx
     class HomePage extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-            <NavBar></NavBar>
+            <NavigationBar></NavigationBar>
             <SearchBar/>
-            <CountyCardList/>
             <USDashboard/>
-          )
-      }
-    }
-    ```
-  - SearchBar
-    - This component is a view that contains a search input field and autocomplete function.
-    - View resides only on the client
-    ```jsx
-    class SearchBar extends Component() {
-      // TO-DO: Implement actual component
-      render() {
-          return (
-            <input></input>
+            <SavedCardList/>
           )
       }
     }
     ```
   - NavigationBar
-    - This component is a view that contains links to navigate the user to different parts of the web application
-    - View resides only on the client
-    - Code Snippet:
+    - This component is a view that is at the top of every page throughout the app
+    - View resides on the client
     ```jsx
     class NavigationBar extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-            <NavBar>
-               <div><Link>Home</Link></div>
-               <div>BaseCheck</div>
-            </NavBar>
+            <h1><a href="/">BaseCheck</a></h1>
+          )
+      }
+    }
+    ```
+  - SearchPage
+    - This component is a view that contains a NavigationBar view, a SearchBar view, a CountyCardList view, and USDashboard view
+    - View resides only on the client
+    ```jsx
+    class SearchPage extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <NavigationBar></NavigationBar>
+            <SearchBar/>
+            <USDashboard/>
+            <CountyCardList/>
+          )
+      }
+    }
+    ```
+  - SearchBar
+    - This component is a view that contains an autocomplete component from `material-ui`.
+    - View resides only on the client but communicates with the CoverCovid API-19 to generate autocomplete results
+    ```jsx
+    class SearchBar extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <Autocomplete></Autocomplete>
           )
       }
     }
     ```
   - CountyCardList
     - This component is a view that will contain 0 to many CountyCard views
-    - This view also communicates with the UserStorage Model to populate saved locations when needed
+    - This view also communicates with the CoverCovid-19 API to populate saved locations when needed
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -99,8 +77,27 @@
       }
     }
     ```
+  - SavedCardList
+    - This component is a view that will show and only appear if there are 1 or more saved locations.
+    - This view also communicates with the CoverCovid-19 API to populate saved locations when needed
+    - View resides only on the client
+    - Code Snippet:
+    ```jsx
+    class SavedCardList extends Component() {
+      // TO-DO: Implement actual component
+      render() {
+          return (
+            <div>
+              counties.map(() => {
+                list.add(county)
+              })
+            </div>
+          )
+      }
+    }
+    ```
   - USDashboard
-    - This component is a view that will contain some Covid related information found in the UnitedStates Model
+    - This component is a view that will contain some Covid related information from the Disease.sh API
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -123,25 +120,23 @@
       }
     }
     ```
-  - CountyCard
-    - This component is a view that will contain a preview of Covid related information found in the County Model
+  - Card
+    - This component is a view that will contain a preview of Covid related information from the CoverCovid-19 API
     - View resides only on the client
     - Code Snippet:
     ```jsx
-    class CountyCard extends Component() {
+    class Card extends Component() {
       // TO-DO: Implement actual component
       render() {
           return (
-              <p>
-                Total Cases: CountyModel.getCases();
-                Total Deaths: CountyMode.getDeaths();
-              </p>
+              <p>Total Cases: </p>
+              <p>Total Deaths: </p>
           )
       }
     }
     ```
   - CountyDetail
-    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the County Model.
+    - This component is a view that contains a NavigationBar view, a deeper level of county information and statistics from the CoverCovid-19 API.
     - View resides only on the client
     - Code Snippet:
     ```jsx
@@ -150,35 +145,16 @@
       render() {
           return (
               <NavigationBar/>
-              <p>
-                Total Cases: CountyModel.getCases();
-                Total Deaths: CountyMode.getDeaths();
-              </p>
+              <p>Total Cases: </p>
+              <p> Total Deaths: </p>
           )
       }
     }
     ```
-   - ColorScale
-      - This component is a view that contains color scale and accompanying text must meet color contrast guidelines (WCAG 2.1 AA) per RiskLevel controller.
-      - View resides only on the client
-      - Code Snippet:
-      ```jsx
-      class ColorScale extends Component() {
-        // TO-DO: Implement actual component
-        render() {
-            return (
-                <NavigationBar/>
-                <div>
-                // place holder
-                </div>
-            )
-        }
-      }
-      ```
     
 Controllers:
   ```
-    // saves a location to the UserStorage Model
+    // saves a location to the localStorage
     function saveLocation(String county) {
       // TO-DO: replace with actual algorithm
       localStorage.get(counties).add(county);
@@ -187,18 +163,5 @@ Controllers:
     function unSaveLocation(String county ) {
       // TO-DO: replace with actual algorithm
       localStorage.get(counties).remove(county);
-    }
-      
-    function fillDisplay() {
-      // TO-DO: replace with actual algorithm
-      for county in UserStorage.counties {
-        CountyList.add(CountyCard(county));
-      }
-    }
-    
-    function RiskLevel() {
-      // TO-DO: replace with actual algorithm
-      // Increase (or decrease)= New total cases (in the last 7 days) - Original total of cases 
-      // % increase (or decrease) = Increase ÷ Original total of cases × 100
     }
   ```

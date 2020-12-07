@@ -26,6 +26,7 @@
 }
 
 .baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+  color: white;
   text-decoration: underline;
 }
 
@@ -66,7 +67,47 @@ h2 {
   font-weight: bold;
 }
 
+/*
+  US Dashboard Component related CSS
+*/
 
+.us-page {
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  flex-direction: column;
+  width: 800px;
+  border: 0.5px solid black;
+  padding-left: 10px;
+}
+
+.us-stats {
+  display: flex;
+  justify-content: center;
+}
+
+* { box-sizing: border-box; } /* recommended for item sizing */
+
+.us-individual {
+  background-color: rgba(41,51,92,0.14);
+  text-align: center;
+  flex-grow: 1; /* get 1 share of extra space */
+  flex-shrink: 0; /* do not shrink if items overflow container */
+  flex-basis: 25%; /* take up 33% of parent initially */
+  font-weight: bold;
+  margin: 10px;
+  letter-spacing: 2px;
+}
+
+.us-cases {
+  color: red;
+  font-weight: bold;
+}
+
+.us-update {
+  text-align: right;
+  padding-right: 10px;
+}
 /*
   County Details Page related CSS
 */
@@ -86,6 +127,7 @@ h2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   margin-bottom: 3em;
+  padding-bottom: 50px;
 }
 
 .county-header {
@@ -101,35 +143,41 @@ h2 {
 
 .county-High {
   background-color: #DC3220;
-  opacity: 0.8;
+  color: white;
 }
 
 .county-Medium {
   background-color: #E66100;
-  opacity: 0.8;
+  color: black;
+  opacity: 0.9;
 }
 
 .county-Low {
   background-color: #FFC20A;
+  color: black;
   opacity: 0.8;
 }
 
 .county-NA {
-  background-color: black;
+  background-color: darkgrey;
+  color: black;
 }
 
 .back {
-  padding-left: 1em;
-  font-size: 1.5em;
+  padding-left: 2em;
   color: white;
 }
 
+.back:hover {
+  color: #29335C;
+}
+
 .favorite {
-  padding-right: 1em;
+  padding-right: 2em;
 }
 
 .county-body {
-  background-color: #F9F9F9;
+  background-color: white;
   width: 100%;
   height: auto;
   font-size: x-large;
@@ -212,7 +260,7 @@ h2 {
 .tool-bar {
   display: flex;
   justify-content: space-between;
-  background-color: #0A7FEB;
+  background-color: #29335C;
   color: white;
   height: 100%;
 }
@@ -249,11 +297,15 @@ h2 {
 .card {
   background-color: white;
   width: 300px;
-  height: 250px;
+  height: 300px;
   border: 1px solid grey;
   margin: 1em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+}
+
+.test {
+  padding-left: 280px;
 }
 
 .card-link {
@@ -265,13 +317,20 @@ h2 {
   box-shadow: none;
 }
 
+.card-option {
+  display: flex;
+  justify-content: flex-end;
+  height: 15%;
+}
+
 .card-body {
-  color: white;
-  height: 70%;
+  height: 55%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .card-footer {
@@ -332,4 +391,47 @@ input {
 
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+/*
+* Buttons
+*/
+
+.save-button {
+  width: auto;
+  height: auto;
+  background-color: inherit;
+  border: none;
+}
+
+.detail-button {
+  font-size: 50px;
+}
+
+.save-button:hover {
+  cursor: pointer;
+}
+
+.saved {
+  color: #29335C;
+}
+
+.unsaved {
+  color: white;
+}
+
+.card-button {
+  font-size: 33px;
+}
+
+.unsaved:hover {
+  color: #29335C;
+}
+
+.modal-button {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background-color: inherit;
+  border: none;
 }
