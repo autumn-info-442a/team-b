@@ -5,7 +5,7 @@
 | **Id** | **Status** | **Page** | **Feature** | **Feature Requirements** | **Explanation (if applicable)** |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Completed :white_check_mark: | Global | Search Bar | There is a search bar that allows users to search counties in the US. All counties in the US that match the search input will be displayed in the results page once the users hit the search button. | N/A |
-| 2 | NEED TO REVISE | Global | Search Bar - Autocomplete | There is auto completion within the search bar that shows a list of at most the top six counties that matches the user input. | ? |
+| 2 | Revised :pencil2: and Completed :white_check_mark: | Global | Search Bar - Autocomplete | There is auto completion within the search bar that shows a list of at most the top six counties that matches the user input. | This requirement is revised to show that  |
 | 3 | REVISE? | Global | Navigation Bar | There is a navigation bar that allows users to navigate to their saved locations in one click. | ? |
 | 4 | ?? | Global | Navigation Bar | A navigation bar that allows users to navigate to the search for locations in one click. | ? |
 | 5 | REVISE | Global | Saved locations | There is a favorite feature that allows users to add any county dashboard to their saved locations in one click. | ? |
