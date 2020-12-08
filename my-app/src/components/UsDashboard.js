@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NumberFormat from 'react-number-format';
 
 /*
   Component that represents a US Dashboard on Home Page.
@@ -25,15 +26,15 @@ export default function UsDashboard() {
             <div className="us-stats">
                 <div className="us-individual">
                     <p>Total Cases:</p>
-                    <div className="us-cases"><p>{data['cases']}</p></div>
+                    <div className="us-cases"><p><NumberFormat value={data['cases']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
                 <div className="us-individual">
                     <p>New Cases (1 Day):</p>
-                    <div className="us-cases"><p>{data['todayCases']}</p></div>
+                    <div className="us-cases"><p><NumberFormat value={data['todayCases']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
                 <div className="us-individual">
                     <p>Total Deaths:</p>
-                    <div className="us-cases"><p>{data['deaths']}</p></div>
+                    <div className="us-cases"><p><NumberFormat value={data['deaths']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
             </div>
             <div className="us-update">
