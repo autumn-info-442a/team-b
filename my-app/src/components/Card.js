@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AlertDialog from './ConfirmationDialog';
 import NumberFormat from 'react-number-format';
+import moment from 'moment';
 
 /*
     Card Component that represents either a search result or saved location for a user
@@ -58,7 +59,7 @@ export default function Card(props) {
                 </div>
                 <div className="card-footer">
                     <div className="card-name">{county.name + " County, " + county.state}</div>
-                    <div className="card-time">{"Last Updated: " + date}</div>
+                    <div className="card-time">{"Last Updated: " + moment(date).format('M/D/YYYY')}</div>
                 </div>
             </a>
         </div>

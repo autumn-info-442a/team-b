@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
 import AlertDialog from './ConfirmationDialog';
 import NumberFormat from 'react-number-format';
+import moment from 'moment';
 
 /*
     Component that represents a County Page, shows recent updates in cases and County Covid-related info.
@@ -99,7 +100,7 @@ export default function CountyDetail() {
                 <p>New Cases (2 Weeks): <b><NumberFormat value={location ? location["2wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
                 <p>New Cases (1 Week): <b><NumberFormat value={location ? location["1wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
                 <p>New Cases (1 Day): <b><NumberFormat value={location ? location["1dd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
-                <p>Last Updated: <b>{location ? location.date.split(" ")[0] : "N/A"}</b></p>
+                <p>Last Updated: <b>{location ? moment(location.date.split(" ")[0]).format('M/D/YYYY') : "N/A"}</b></p>
               </div>
               <div className="county-visual">
                 {location ? <LineGraph location={location}/> : <div></div>}
