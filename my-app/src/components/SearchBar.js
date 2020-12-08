@@ -39,7 +39,6 @@ export default function SearchBar() {
           }}
           onInputChange={e => {
             setInput(e.target.value);
-            console.log(input);
           }}
           style={{ width: '50em' }}
           renderInput={(params) => <TextField {...params} label='&#128269; Search for a county in the US' variant="outlined" />}
