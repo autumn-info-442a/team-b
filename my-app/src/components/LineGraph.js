@@ -16,7 +16,7 @@ export default function BarGraph(props) {
     return (
     <div>
         <div>
-            Trends Over the Past 2 Weeks
+            Trends of COVID-19 Cases
         </div>
         <div>
             <XYPlot xType="ordinal" width={300} height={400} xDistance={100}>
