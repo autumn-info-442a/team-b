@@ -107,9 +107,7 @@ export default function CountyDetail() {
               </div>
             </div>
           </div>
-          <div>
-            <img className="RiskScale" src="../../riskscale.png" alt="Risk color scale" width='600' height='75'/>
-          </div>
+          <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
         </div>
       </main>
     );

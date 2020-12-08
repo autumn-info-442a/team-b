@@ -26,9 +26,7 @@ export default function CountyCardList(props) {
         return (
             <div className="list">
                 <p className="search-result">{props.counties.length} search results found for "{props.search}"</p>
-                <div>
-                    <img className="risk-scale2" src="../../riskscale2.png" alt="Risk color scale" width='600' height='75'/>
-                </div>
+                <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
                 <div className="card-container">
                     {counties}
                 </div>
