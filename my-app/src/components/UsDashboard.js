@@ -25,20 +25,20 @@ export default function UsDashboard() {
             </div>
             <div className="us-stats">
                 <div className="us-individual">
-                    <p>TOTAL CASES:</p>
+                    <p>Total Cases:</p>
                     <div className="us-cases"><p><NumberFormat value={data['cases']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
                 <div className="us-individual">
-                    <p>NEW CASES (1 Day):</p>
+                    <p>New Cases (1 Day):</p>
                     <div className="us-cases"><p><NumberFormat value={data['todayCases']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
                 <div className="us-individual">
-                    <p>TOTAL DEATHS:</p>
+                    <p>Total Deaths:</p>
                     <div className="us-cases"><p><NumberFormat value={data['deaths']} displayType="text" thousandSeparator={true} /></p></div>
                 </div>
             </div>
             <div className="us-update">
-                <p>Worldometers | Updated Every 10 Minutes</p>
+                <p>Data from Worldometers | Updated every 10 minutes</p>
             </div>
         </div>
       );

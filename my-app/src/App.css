@@ -41,31 +41,52 @@
   width: 80%;
 }
 
+.search-result {
+  width: 80%;
+  padding-left: 35px;
+  padding-top: 30px;
+  padding-bottom: 0%;
+  font-weight: bold;
+  padding-bottom: 0%;
+}
+
+.risk-scale2 {
+  float: right;
+  padding-right: 30px;
+}
+
 .empty-list {
-  display: flex;
+  display: flex; 
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
 .search {
-  width: 85%;
+  width: 85%; 
   height: 2em;
   margin-bottom: 1em;
 }
 
-.search-button {
+.search-form {
+  padding-bottom: 50px;
+  padding-top: 15px;
+}
+
+/* .search-button {
   padding-top: 1em;
   width: auto;
   font-size: 1.5em;
   color: black;
-}
+  padding-bottom: 20px;
+} */
 
 h2 {
   font-size: xx-large;
   font-family: 'Encode Sans', sans-serif;
   font-weight: bold;
 }
+
 
 /*
   US Dashboard Component related CSS
@@ -77,7 +98,7 @@ h2 {
   /*align-items: center;*/
   flex-direction: column;
   width: 800px;
-  border: 0.5px solid black;
+  border: 0.5px solid gray;
   padding-left: 10px;
 }
 
@@ -262,7 +283,7 @@ h2 {
   justify-content: space-between;
   background-color: #29335C;
   color: white;
-  height: 100%;
+  height: 80%;
 }
 
 .tool-link {
@@ -341,6 +362,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  /* padding-top: 10px; */
 }
 
 .card-name {
@@ -349,6 +371,7 @@ h2 {
 
 .card-time {
   font-size: 12px;
+  padding-top: 10px;
 }
 
 
