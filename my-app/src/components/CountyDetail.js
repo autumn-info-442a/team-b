@@ -83,14 +83,21 @@ export default function CountyDetail() {
                 <h3><b>Risk Level: {risk}</b></h3>
               </div>
               <div className="favorite">
-                <AlertDialog 
+                {isSaved ? <AlertDialog 
                   info={location["id"]} 
-                  label={isSaved ? <span className="material-icons saved detail-button">favorite</span> : <span className="material-icons unsaved detail-button">favorite</span>}
+                  label={<span className="material-icons saved detail-button">favorite</span>}
                   remove="true"
-                  add="true"
-                  description="Confirm whether you would like to add or remove this location from your dashboard."
+                  description={"Are you sure you want to remove '" + county + " County, " + state + "' from your homepage?"}
                   classes="save-button"
                 />
+                :
+                <AlertDialog 
+                  info={location["id"]} 
+                  label={<span className="material-icons unsaved detail-button">favorite</span>}
+                  add="true"
+                  description={"Would you like to add " + county + " County, " + state + " to your dashboard?"}
+                  classes="save-button"
+                />}
               </div>
           </div>
           <div className="county-body">
