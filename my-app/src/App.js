@@ -36,7 +36,7 @@ function App() {
   Component representing the full Home Page
 */
 function HomePage() {
-  let baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/saved?";
+  let baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
 
   if (savedLocations) {
@@ -102,7 +102,7 @@ function HomePage() {
 function SearchPage() {
 
   let { county } = useParams();
-  const baseUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/search/" + county;
+  const baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
 

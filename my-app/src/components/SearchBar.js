@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 export default function SearchBar() {
   const [input, setInput] = useState("");
   const [counties, setCounties] = useState([]);
-  const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/locations";
+  const requestUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/locations";
   
   useEffect(() => {
     fetch(requestUri).then((response) => response.json())

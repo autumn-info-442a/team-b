@@ -19,7 +19,7 @@ export default function CountyDetail() {
     const [risk, setRisk] = useState("NA");
     const [isSaved, setSaved] = useState(false);
     const [loaded, setLoaded] = useState(false);
-    const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
+    const requestUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/county/" + county + "/" + state;
   
     useEffect(() => {
       fetch(requestUri).then((response) => response.json())
@@ -107,9 +107,7 @@ export default function CountyDetail() {
               </div>
             </div>
           </div>
-          <div>
-            <img className="RiskScale" src="../../riskscale.png" alt="Risk color scale" width='600' height='75'/>
-          </div>
+          <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
         </div>
       </main>
     );
