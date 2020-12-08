@@ -25,7 +25,6 @@ export default function SearchBar() {
       <h2>COVID-19 Cases Today Across the Country</h2>
       <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
       <div className="search-form">
-        <form action={document.getElementById("combo-box-demo") ? "/search/" + document.getElementById("combo-box-demo").value : "/search/" + input}>
         <Autocomplete
           id="combo-box-demo"
           options={counties}
@@ -45,9 +44,8 @@ export default function SearchBar() {
           style={{ width: '50em' }}
           renderInput={(params) => <TextField {...params} label='&#128269; Search for a county in the US' variant="outlined" />}
         />
-        </form>
+        <a href={'/search/' + input} className="search-button">Search</a>
       </div>
-      {/* <a href={'/search/' + input} className="search-button">Search</a> */}
     </div>
   );
 }

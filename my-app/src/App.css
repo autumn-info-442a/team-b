@@ -76,13 +76,19 @@
   padding-top: 15px;
 }
 
-/* .search-button {
-  padding-top: 1em;
+.search-button {
+  border: 1px solid black;
+  background-color: #29335C;
+  text-align: center;
   width: auto;
+  font-weight: bold;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 0.25em;
   font-size: 1.5em;
-  color: black;
-  padding-bottom: 20px;
-} */
+  text-decoration: none;
+  color: white;
+}
 
 h2 {
   font-size: xx-large;
