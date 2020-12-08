@@ -17,7 +17,7 @@ export default function CountyDetail() {
     const [risk, setRisk] = useState("NA");
     const [isSaved, setSaved] = useState(false);
     const [loaded, setLoaded] = useState(false);
-    const requestUri = "https://cors-anywhere.herokuapp.com/https://covercovid-19.com/county/" + county + "/" + state;
+    const requestUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/county/" + county + "/" + state;
   
     useEffect(() => {
       fetch(requestUri).then((response) => response.json())
