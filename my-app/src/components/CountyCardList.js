@@ -13,7 +13,7 @@ export default function CountyCardList(props) {
     // If there is not loaded prop, will render a loading ring to illustrate loading
     if (!props.loaded) {
         return (
-            <div><Ring/></div>
+            <div className="margin-top"><Ring/></div>
         );
     }
 
