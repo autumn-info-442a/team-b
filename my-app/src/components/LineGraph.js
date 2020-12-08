@@ -16,7 +16,7 @@ export default function BarGraph(props) {
     return (
     <div>
         <div>
-            Covid Trends Over the Past Two Weeks
+            Trends of COVID-19 Cases
         </div>
         <div>
             <XYPlot xType="ordinal" width={300} height={400} xDistance={100}>
@@ -24,7 +24,7 @@ export default function BarGraph(props) {
             <HorizontalGridLines />
             <XAxis/>
             <YAxis width={100} left={-50} hideLine/>
-            <BarSeries className="vertical-bar-series-example" data={blueData} />
+            <BarSeries className="vertical-bar-series-example" data={blueData} color={"#29335C"}/>
             </XYPlot>
         </div>
     </div>
