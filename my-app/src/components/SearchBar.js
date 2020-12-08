@@ -47,7 +47,7 @@ export default function SearchBar() {
         />
         </form>
       </div>
-      <a href={'/search/' + input} className="search-button">Search</a>
+      {/* <a href={'/search/' + input} className="search-button">Search</a> */}
     </div>
   );
 }
