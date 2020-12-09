@@ -38,7 +38,7 @@ export default function UsDashboard() {
                 </div>
             </div>
             <div className="us-update">
-                <p> Data from <a href="https://www.worldometers.info/coronavirus/country/us/">Worldometers</a> | Updated every 10 minutes</p>
+                <p> Data from <a target="_blank" rel="noreferrer" href="https://www.worldometers.info/coronavirus/country/us/">Worldometers</a> | Updated every 10 minutes</p>
             </div>
         </div>
       );
