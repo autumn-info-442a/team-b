@@ -227,7 +227,7 @@ h2 {
 .county-main {
   display: flex;
   justify-content: space-between;
-  padding: 4em;
+  padding: 10px;
 }
 
 .county-stats {
