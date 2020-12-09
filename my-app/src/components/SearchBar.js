@@ -26,6 +26,7 @@ export default function SearchBar() {
       <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
       <div className="search-form">
         <Autocomplete
+          className="search-input"
           id="combo-box-demo"
           options={counties}
           freeSolo={true}
