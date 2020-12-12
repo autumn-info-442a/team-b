@@ -34,7 +34,7 @@ export default function SearchBar() {
           disableClearable={true}
           getOptionLabel={(option) => option.title}
           onChange = {(e, option) => {
-            if (option != null) {
+            if (option !== null) {
               setInput(option.title); 
               document.getElementById("combo-box-demo").value = option.title;
             }
@@ -42,11 +42,13 @@ export default function SearchBar() {
           onInputChange={e => {
             setInput(e.target.value);
           }}
+          autoComplete={true}
           style={{ width: '50em' }}
           renderInput={(params) => <TextField {...params} label='&#128269; Search for a US county' variant="outlined" />}
         />
         {input ? <a href={'/search/' + input} className="search-button">Search</a> : <span className="search-button-disabled">Search</span>}
       </div>
+      <p>Type in a county name and press the search button to find your county!</p>
     </div>
   );
 }
