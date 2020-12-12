@@ -13,6 +13,7 @@ export default function SearchBar() {
   useEffect(() => {
     fetch(requestUri).then((response) => response.json())
     .then((responseData) => {
+      // Removes autauga from search results
       responseData.shift();
       setCounties(responseData);
     })

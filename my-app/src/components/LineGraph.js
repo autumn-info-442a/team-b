@@ -22,7 +22,7 @@ export default function BarGraph(props) {
             Trends of COVID-19 Cases
         </div>
         <div>
-            <XYPlot xType="ordinal" width={300} height={400} xDistance={100}>
+            <XYPlot xType="ordinal" width={300} height={350} xDistance={100}>
             <VerticalGridLines />
             <HorizontalGridLines />
             <XAxis/>
