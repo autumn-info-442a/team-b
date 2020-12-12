@@ -39,14 +39,14 @@ export default function Card(props) {
             <div className={"card-option county-" + risk}>
                 {isSaved ? <AlertDialog 
                     info={county["id"]}
-                    label={<span className="material-icons saved card-button">favorite</span>}
+                    label={<span className="material-icons saved card-button">star</span>}
                     remove
                     description={"Are you sure you want to remove '" + county.name + " County, " + county.state + "' from your homepage?"}
                     classes="modal-button"
                 /> : 
                 <AlertDialog 
                     info={county["id"]}
-                    label={<span className="material-icons unsaved card-button">favorite</span>}
+                    label={<span className="material-icons unsaved card-button">star</span>}
                     add
                     description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}
                     classes="modal-button"
