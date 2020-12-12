@@ -25,7 +25,7 @@ export default function SearchBar() {
   return (
     <div className="page-header">
       <h2>COVID-19 Cases Today Across the Country</h2>
-      <p>BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
+      <p className="subtext">BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
       <div className="search-form">
         <Autocomplete
           id="combo-box-demo"
@@ -43,7 +43,7 @@ export default function SearchBar() {
             setInput(e.target.value);
           }}
           style={{ width: '50em' }}
-          renderInput={(params) => <TextField {...params} label='&#128269; Search for a county in the US' variant="outlined" />}
+          renderInput={(params) => <TextField {...params} label='&#128269; Search for a US county' variant="outlined" />}
         />
         {input ? <a href={'/search/' + input} className="search-button">Search</a> : <span className="search-button-disabled">Search</span>}
       </div>
