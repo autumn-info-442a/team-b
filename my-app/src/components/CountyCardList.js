@@ -35,7 +35,7 @@ export default function CountyCardList(props) {
     } else {
         return (
         <div className="empty-list">
-            <p>Unfortunately, we have no results for "{props.search}"</p>
+            <p>Oops... we have no Covid-19 related data for "{props.search}"</p>
             <img src="../../error.jpg" alt="no results found"></img>
         </div>
         );
