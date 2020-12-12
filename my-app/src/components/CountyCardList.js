@@ -26,6 +26,7 @@ export default function CountyCardList(props) {
         return (
             <div className="list">
                 <p className="search-result">{props.counties.length} search results found for "{props.search}"</p>
+                <a href="/">Back to Saved Locations</a>
                 <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
                 <div className="card-container">
                     {counties}
@@ -35,7 +36,7 @@ export default function CountyCardList(props) {
     } else {
         return (
         <div className="empty-list">
-            <p>Unfortunately, we have no results for "{props.search}"</p>
+            <p>Oops... we have no Covid-19 related data for "{props.search}"</p>
             <img src="../../error.jpg" alt="no results found"></img>
         </div>
         );

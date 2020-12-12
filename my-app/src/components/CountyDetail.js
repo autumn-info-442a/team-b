@@ -85,7 +85,7 @@ export default function CountyDetail() {
               <div className="favorite">
                 {isSaved ? <AlertDialog 
                   info={location["id"]} 
-                  label={<span className="material-icons saved detail-button">favorite</span>}
+                  label={<span className="material-icons saved detail-button">star</span>}
                   remove="true"
                   description={"Are you sure you want to remove '" + county + " County, " + state + "' from your homepage?"}
                   classes="save-button"
@@ -93,7 +93,7 @@ export default function CountyDetail() {
                 :
                 <AlertDialog 
                   info={location["id"]} 
-                  label={<span className="material-icons unsaved detail-button">favorite</span>}
+                  label={<span className="material-icons unsaved detail-button">star</span>}
                   add="true"
                   description={"Would you like to add " + county + " County, " + state + " to your dashboard?"}
                   classes="save-button"
@@ -103,12 +103,14 @@ export default function CountyDetail() {
           <div className="county-body">
             <div className="county-main">
               <div className="county-stats">
-                <p>Total Cases: <b><NumberFormat value={location ? location["cnt"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
-                <p>New Cases (2 Weeks): <b><NumberFormat value={location ? location["2wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
-                <p>New Cases (1 Week): <b><NumberFormat value={location ? location["1wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
-                <p>New Cases (1 Day): <b><NumberFormat value={location ? location["1dd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
-                <p>Last Updated: <b>{location ? moment(location.date.split(" ")[0]).format('M/D/YYYY') : "N/A"}</b></p>
-                <p><a target="_blank" rel="noreferrer" href="https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days">See state covid data &#8599;</a></p>
+                <div className="county-text">
+                  <p>Total Cases: <b><NumberFormat value={location ? location["cnt"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
+                  <p>New Cases (2 Weeks): <b><NumberFormat value={location ? location["2wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
+                  <p>New Cases (1 Week): <b><NumberFormat value={location ? location["1wd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
+                  <p>New Cases (1 Day): <b><NumberFormat value={location ? location["1dd"] : "N/A"} displayType="text" thousandSeparator={true} /></b></p>
+                  <p>Last Updated: <b>{location ? moment(location.date.split(" ")[0]).format('M/D/YYYY') : "N/A"}</b></p>
+                  <p><a target="_blank" rel="noreferrer" href="https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days">See CDC state covid data &#8599;</a></p>
+                </div>
               </div>
               <div className="county-visual">
                 {location ? <LineGraph location={location}/> : <div></div>}
