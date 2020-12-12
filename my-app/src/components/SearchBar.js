@@ -13,6 +13,7 @@ export default function SearchBar() {
   useEffect(() => {
     fetch(requestUri).then((response) => response.json())
     .then((responseData) => {
+      responseData.shift();
       setCounties(responseData);
     })
     .catch((err) => {
