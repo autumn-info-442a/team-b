@@ -12,7 +12,10 @@ import {
 export default function BarGraph(props) {
     let location = props.location;
     const BarSeries = VerticalBarSeries;
-    const blueData = [{x: 'Two Weeks Ago', y: location["cnt"] - location["2wd"]}, {x: 'One Week Ago', y: location["cnt"] - location["1wd"]}, {x: 'One Day Ago', y: location["cnt"] - - location["1dd"]}];
+    const blueData = [
+        {x: 'Two Weeks Ago', y: location["cnt"] - location["2wd"]}, 
+        {x: 'One Week Ago', y: location["cnt"] - location["1wd"]}, 
+        {x: 'One Day Ago', y: location["cnt"] - location["1dd"]}];
     return (
     <div>
         <div>
