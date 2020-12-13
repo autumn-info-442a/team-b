@@ -15,6 +15,7 @@ export default function SavedCardList(props) {
         });
         return (
             <div className="list">
+                <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
                 <div className="card-container">
                     {counties}
                 </div>
