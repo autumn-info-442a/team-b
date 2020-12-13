@@ -55,7 +55,8 @@ export default function Card(props) {
             <a className="card-link" href={"/county/" + county.name + "/" + county.state}>
                 <div className={"card-body county-" + risk}>
                     <div><p>Total Cases: <NumberFormat value={county['cnt']} displayType="text" thousandSeparator={true} /></p></div>
-                    <div>{"Risk Level: " + risk}</div>
+                    <div><p>New Cases (1 Day): <NumberFormat value={county['1dd']} displayType="text" thousandSeparator={true} /></p></div>
+                    <div><p>{"Risk Level: " + risk}</p></div>
                 </div>
                 <div className="card-footer">
                     <div className="card-name">{county.name + " County, " + county.state}</div>
