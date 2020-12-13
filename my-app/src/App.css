@@ -29,7 +29,12 @@
   text-decoration: none;
 }
 
-.baseCheck:hover, .baseCheck:focus, .baseCheck:active {
+.baseCheckLink, .baseCheckLink:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.baseCheckLink:hover, .baseCheckLink:focus, .baseCheckLink:active {
   color: white;
   text-decoration: underline;
 }
@@ -136,6 +141,16 @@ h2 {
   border: 2px outset #c3c3c375;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#us-dashboard-h2 {
+  font-size: 16px;
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 .us-stats {

@@ -18,7 +18,7 @@ function App() {
       <header>
         <div className="nav-bar">
           <Toolbar className="tool-bar">
-              <a className="baseCheck" href="/">BaseCheck</a>
+              <h1 className="baseCheck"><a className="baseCheckLink" href="/">BaseCheck</a></h1>
           </Toolbar>
         </div>
       </header>
