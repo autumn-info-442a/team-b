@@ -104,6 +104,15 @@
   opacity: 0.9;
 }
 
+.search-link {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  all: unset;
+}
+
 .search-button-disabled {
   background-color: gray;
   text-align: center;

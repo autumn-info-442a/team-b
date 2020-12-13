@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
+import { Link } from 'react-router-dom';
 
 /*
   Component that represents the search bar. Enables autocomplete based on the County names in the US
@@ -46,7 +47,7 @@ export default function SearchBar() {
           style={{ width: '50em' }}
           renderInput={(params) => <TextField {...params} label='&#128269; Search for a US county' variant="outlined" />}
         />
-        {input ? <a href={'/search/' + input} className="search-button">Search</a> : <span className="search-button-disabled">Search</span>}
+        {input ? <button className="search-button"><Link to={'/search/' + input} className="search-link">Search</Link></button> : <span className="search-button-disabled">Search</span>}
       </div>
       <p>Type in a county name and press the search button to find your county!</p>
     </div>

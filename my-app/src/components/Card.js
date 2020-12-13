@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AlertDialog from './ConfirmationDialog';
 import NumberFormat from 'react-number-format';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 /*
     Card Component that represents either a search result or saved location for a user
@@ -52,7 +53,7 @@ export default function Card(props) {
                     classes="modal-button"
                 />}
             </div>
-            <a className="card-link" href={"/county/" + county.name + "/" + county.state}>
+            <Link className="card-link" to={"/county/" + county.name + "/" + county.state}>
                 <div className={"card-body county-" + risk}>
                     <div><p>Total Cases: <NumberFormat value={county['cnt']} displayType="text" thousandSeparator={true} /></p></div>
                     <div><p>New Cases (1 Day): <NumberFormat value={county['1dd']} displayType="text" thousandSeparator={true} /></p></div>
@@ -62,7 +63,7 @@ export default function Card(props) {
                     <div className="card-name">{county.name + " County, " + county.state}</div>
                     <div className="card-time">{"Last Updated: " + moment(date).format('M/D/YYYY')}</div>
                 </div>
-            </a>
+            </Link>
         </div>
     );
 }

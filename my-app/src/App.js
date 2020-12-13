@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, useParams } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Switch, Redirect, useParams } from 'react-router-dom';
 import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
@@ -18,7 +18,7 @@ function App() {
       <header>
         <div className="nav-bar">
           <Toolbar className="tool-bar">
-              <h1 className="baseCheck"><a className="baseCheckLink" href="/">BaseCheck</a></h1>
+              <h1 className="baseCheck"><Link className="baseCheckLink" to="/">BaseCheck</Link></h1>
           </Toolbar>
         </div>
       </header>
