@@ -13,6 +13,7 @@ import moment from 'moment';
 export default function CountyDetail() {
 
     let { county, state } = useParams();
+    document.title = county + ", " + state + " | Basecheck"; 
     county = county.charAt(0).toUpperCase() + county.slice(1);
     state = state.charAt(0).toUpperCase() + state.slice(1);
     const [location, setLocation] = useState();

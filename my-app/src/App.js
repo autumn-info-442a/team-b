@@ -104,7 +104,7 @@ function HomePage() {
   Component representing the search page
 */
 function SearchPage() {
-
+  document.title = "Search | Basecheck";
   let { county } = useParams();
   const baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
