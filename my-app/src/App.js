@@ -82,7 +82,7 @@ function HomePage() {
       <main className="home-page">
         <SearchBar/>
         <UsDashboard/>
-        {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
+        {loaded ? <SavedCardList counties={counties}/> : <div className="margin-top"><Ring/></div>}
       </main>
     );
   } else {
