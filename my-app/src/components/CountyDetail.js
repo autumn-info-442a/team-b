@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import LineGraph from './LineGraph';
 import SearchBar from './SearchBar';
 import { Ring } from 'react-awesome-spinners';
@@ -20,6 +20,8 @@ export default function CountyDetail() {
     const [isSaved, setSaved] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const requestUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/county/" + county + "/" + state;
+
+    let prevUrl = localStorage.getItem("prevUrl") ? localStorage.getItem("prevUrl") : '/';
   
     useEffect(() => {
       fetch(requestUri).then((response) => response.json())
@@ -76,7 +78,7 @@ export default function CountyDetail() {
         <div className="county-page">
           <div className={"county-header county-" + risk}>
               <div>
-                <a className="back" href={'/search/' + county}><span className="material-icons detail-button">arrow_back</span></a>
+                <a className="back" href={prevUrl}><span className="material-icons detail-button">arrow_back</span></a>
               </div>
               <div>
                 <h2>{county} County, {state}</h2>
