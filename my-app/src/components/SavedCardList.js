@@ -15,7 +15,7 @@ export default function SavedCardList(props) {
         });
         return (
             <div className="list">
-                <p className="search-result">You have {props.counties.length} saved locations</p>
+                <p className="search-result">You have {props.counties.length} saved {props.counties.length > 1 ? "locations" : "location"}</p>
                 <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
                 <div className="card-container">
                     {counties}
