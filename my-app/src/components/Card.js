@@ -47,7 +47,6 @@ export default function Card(props) {
                 <AlertDialog 
                     info={county["id"]}
                     label={<span className="material-icons unsaved card-button">star</span>}
-                    add
                     description={"Would you like to add " + county.name + " County, " + county.state + " to your dashboard?"}
                     classes="modal-button"
                 />}

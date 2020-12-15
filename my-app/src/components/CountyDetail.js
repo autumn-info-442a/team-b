@@ -89,7 +89,7 @@ export default function CountyDetail() {
                 {isSaved ? <AlertDialog 
                   info={location["id"]} 
                   label={<span className="material-icons saved detail-button">star</span>}
-                  remove="true"
+                  remove
                   description={"Are you sure you want to remove '" + county + " County, " + state + "' from your homepage?"}
                   classes="save-button"
                 />
@@ -97,7 +97,6 @@ export default function CountyDetail() {
                 <AlertDialog 
                   info={location["id"]} 
                   label={<span className="material-icons unsaved detail-button">star</span>}
-                  add="true"
                   description={"Would you like to add " + county + " County, " + state + " to your dashboard?"}
                   classes="save-button"
                 />}
