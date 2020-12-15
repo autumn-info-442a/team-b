@@ -82,7 +82,6 @@ function HomePage() {
       <main className="home-page">
         <SearchBar/>
         <UsDashboard/>
-        <h2>Saved Locations:</h2>
         {loaded ? <SavedCardList counties={counties}/> : <Ring/>}
       </main>
     );
