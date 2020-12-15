@@ -38,7 +38,7 @@ export default function SearchBar() {
 
   return (
     <div className="page-header">
-      <h2>COVID-19 Cases Today Across the Country</h2>
+      <h2>COVID-19 Cases Today Across the United States</h2>
       <p className="subtext">BaseCheck wants to ensure that every person has the accessible opportunity to stay well-informed about the pandemic.</p>
       <div className="search-form">
         <Autocomplete
