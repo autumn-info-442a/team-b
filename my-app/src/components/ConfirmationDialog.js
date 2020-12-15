@@ -73,9 +73,8 @@ export default function AlertDialog(props) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            {props.remove ? <Button onClick={unSaveLocation} color="primary">Remove</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
-            {props.add ? <Button onClick={saveLocation} color="primary" autoFocus>Add</Button> : <Button onClick={handleClose} color="primary">Cancel</Button>}
-
+            <Button onClick={handleClose} color="primary">Cancel</Button>
+            {props.remove ? <Button onClick={unSaveLocation} color="primary">Remove</Button> : <Button onClick={saveLocation} color="primary" autoFocus>Add</Button>}
           </DialogActions>
         </Dialog>
       </div>
