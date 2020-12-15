@@ -22,11 +22,11 @@ export default function BarGraph(props) {
             Trends of COVID-19 Cases
         </div>
         <div>
-            <XYPlot xType="ordinal" width={300} height={350} xDistance={100}>
+            <XYPlot xType="ordinal" width={330} height={350} xDistance={100} margin={{left: 55}}>
             <VerticalGridLines />
             <HorizontalGridLines />
             <XAxis/>
-            <YAxis width={100} left={-50} hideLine/>
+            <YAxis width={100} left={-40} hideLine/>
             <BarSeries className="vertical-bar-series-example" data={blueData} color={"#29335C"}/>
             </XYPlot>
         </div>

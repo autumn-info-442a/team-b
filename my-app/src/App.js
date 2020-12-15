@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, BrowserRouter as Router, Route, Switch, Redirect, useParams } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Switch, Redirect, useParams, useLocation } from 'react-router-dom';
 import './App.css';
 import CountyDetail from './components/CountyDetail';
 import SearchBar from './components/SearchBar';
@@ -38,6 +38,10 @@ function App() {
 function HomePage() {
   let baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
+
+  // Track the previous URL accessed
+  let prevUrl = useLocation().pathname;
+  localStorage.setItem("prevUrl", prevUrl);
 
   if (savedLocations) {
     savedLocations.map((id) => {
@@ -100,11 +104,15 @@ function HomePage() {
   Component representing the search page
 */
 function SearchPage() {
-
+  document.title = "Search | Basecheck";
   let { county } = useParams();
   const baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
   const [loaded, setLoaded] = useState(false);
+
+  // Track the previous URL accessed
+  let prevUrl = useLocation().pathname;
+  localStorage.setItem("prevUrl", prevUrl);
 
   useEffect(() => {
     fetch(baseUri, {
