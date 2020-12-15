@@ -7,6 +7,20 @@ import TextField from '@material-ui/core/TextField';
 */
 export default function SearchBar() {
   const [input, setInput] = useState("");
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    if (input.length > 0) {
+      setOpen(true);
+    }
+  }
+  const handleInputChange = (event, newInputValue) => {
+    setInput(newInputValue);
+    if (newInputValue.length > 0) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }
   const [counties, setCounties] = useState([]);
   const requestUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/locations";
   
@@ -29,6 +43,9 @@ export default function SearchBar() {
       <div className="search-form">
         <Autocomplete
           id="combo-box-demo"
+          open={open}
+          onOpen={handleOpen}
+          onClose={() => setOpen(false)}
           options={counties}
           freeSolo={true}
           disableClearable={true}
@@ -39,9 +56,7 @@ export default function SearchBar() {
               document.getElementById("combo-box-demo").value = option.title;
             }
           }}
-          onInputChange={e => {
-            setInput(e.target.value);
-          }}
+          onInputChange={handleInputChange}
           autoComplete={true}
           style={{ width: '50em' }}
           renderInput={(params) => <TextField {...params} label='&#128269; Search for a US county' variant="outlined" />}

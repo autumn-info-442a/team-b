@@ -21,7 +21,7 @@ export default function UsDashboard() {
     return (
         <div className="us-page">
             <div>
-                <h4>United States COVID-19 Cases and Deaths</h4>
+                <h2 id="us-dashboard-h2">United States COVID-19 Cases and Deaths</h2>
             </div>
             <div className="us-stats">
                 <div className="us-individual">
@@ -38,7 +38,7 @@ export default function UsDashboard() {
                 </div>
             </div>
             <div className="us-update">
-                <p> Data from <a target="_blank" rel="noreferrer" href="https://www.worldometers.info/coronavirus/country/us/">Worldometers</a> | Updated every 10 minutes</p>
+                <p>Data from <a target="_blank" rel="noreferrer" href="https://www.worldometers.info/coronavirus/country/us/">Worldometers</a> | Updated every 10 minutes</p>
             </div>
         </div>
       );

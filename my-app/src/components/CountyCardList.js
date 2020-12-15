@@ -1,6 +1,7 @@
 import React from 'react';
 import { Ring } from 'react-awesome-spinners';
 import Card from './Card';
+import { Link } from 'react-router-dom';
 
 /*
     Component that will act a a container to hold each Card Component.
@@ -26,7 +27,7 @@ export default function CountyCardList(props) {
         return (
             <div className="list">
                 <p className="search-result">{props.counties.length} search results found for "{props.search}"</p>
-                <a href="/">Back to Saved Locations</a>
+                <Link to="/">Back to Saved Locations</Link>
                 <img className="risk-scale2" src="../../riskscale.png" alt="Risk color scale"/>
                 <div className="card-container">
                     {counties}
