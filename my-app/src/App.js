@@ -38,7 +38,7 @@ function App() {
 function HomePage() {
   let baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/saved?";
   const savedLocations = JSON.parse(localStorage.getItem("counties"));
-
+  document.title = "BaseCheck";
   // Track the previous URL accessed
   let prevUrl = useLocation().pathname;
   localStorage.setItem("prevUrl", prevUrl);
@@ -103,7 +103,7 @@ function HomePage() {
   Component representing the search page
 */
 function SearchPage() {
-  document.title = "Search | Basecheck";
+  document.title = "Search | BaseCheck";
   let { county } = useParams();
   const baseUri = "https://cors-anywhere.gradyt.com/https://covercovid-19.com/search/" + county;
   const [counties, setCounties] = useState([]);
